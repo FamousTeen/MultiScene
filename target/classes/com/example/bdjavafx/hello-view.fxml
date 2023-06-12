@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox fx:controller="com.example.bdjavafx.controllers.PembelianSceneController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox prefHeight="400.0" prefWidth="254.0">
+        <Label text="FORM" />
+        <TextField fx:id="textField" />
+        <Button onAction="#submit" prefHeight="31.0" prefWidth="56.0" text="Submit" />
+    </VBox>
+    <TableView fx:id="tableView" prefHeight="400.0" prefWidth="542.0">
+      <columns>
+          <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="employeeNameColumn" prefWidth="123.0" text="EMPLOYEE NAME" />
+          <TableColumn fx:id="brgDibeliColumn" prefWidth="123.0" text="BRG DIBELI" />
+          <TableColumn fx:id="customerIDColumn" prefWidth="123.0" text="CUSTOMER ID" />
+      </columns>
+    </TableView>
+</HBox>
