@@ -30,7 +30,7 @@ public class EmployeeRepository {
         return mesinList;
     }
 
-    public void createPembelian(Employee employee) throws SQLException {
+    public void createEmployee(Employee employee) throws SQLException {
         var conn = DBConnection.get();
         var stmt = conn.prepareStatement("INSERT INTO employee VALUES (DEFAULT, ?, ?, ?, ?, ?)" );
         stmt.setString(1, employee.getNamaEmployee());

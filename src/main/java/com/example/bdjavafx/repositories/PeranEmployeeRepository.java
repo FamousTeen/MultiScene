@@ -1,7 +1,6 @@
 package com.example.bdjavafx.repositories;
 
 import com.example.bdjavafx.DBConnection;
-import com.example.bdjavafx.models.Employee;
 import com.example.bdjavafx.models.PeranEmployee;
 
 import java.sql.SQLException;
@@ -16,29 +15,23 @@ public class PeranEmployeeRepository {
 
       List<PeranEmployee> peranList = new ArrayList<>();
       while (resultSet.next()) {
-         int idEmployee = resultSet.getInt("id_employee");
-         String namaEmployee = resultSet.getString("nama_employee");
-         String alamat = resultSet.getString("alamat");
-         String tglLahir = resultSet.getString("tgl_lahir");
          int idPeran = resultSet.getInt("id_peran");
-         int idProduksi = resultSet.getInt("id_produksi");
+         String namaPeran = resultSet.getString("nama_peran");
+         String jabatan = resultSet.getString("jabatan");
 
-         mesinList.add(new Employee(idEmployee, namaEmployee, alamat, tglLahir, idPeran, idProduksi));
+         peranList.add(new PeranEmployee(idPeran, namaPeran, jabatan));
       }
       resultSet.close();
       stmt.close();
 
-      return mesinList;
+      return peranList;
    }
 
-   public void createPembelian(Employee employee) throws SQLException {
+   public void createPeran(PeranEmployee peran) throws SQLException {
       var conn = DBConnection.get();
-      var stmt = conn.prepareStatement("INSERT INTO employee VALUES (DEFAULT, ?, ?, ?, ?, ?)" );
-      stmt.setString(1, employee.getNamaEmployee());
-      stmt.setString(2, employee.getAlamat());
-      stmt.setString(3, employee.getTglLahir());
-      stmt.setInt(4, employee.getIdPeran());
-      stmt.setInt(5, employee.getIdProduksi());
+      var stmt = conn.prepareStatement("INSERT INTO employee VALUES (DEFAULT, ?, ?)" );
+      stmt.setString(1, peran.getNamaPeran());
+      stmt.setString(2, peran.getJabatan());
       stmt.execute();
    }
 }
