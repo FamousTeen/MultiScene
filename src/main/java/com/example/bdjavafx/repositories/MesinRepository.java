@@ -19,27 +19,25 @@ public class MesinRepository {
       while (resultSet.next()) {
          int idMesin = resultSet.getInt("id_mesin");
          int kapasitasMesin = resultSet.getInt("kapasitas_mesin");
-         int hargaMesin = resultSet.getInt("alamat");
-         String tglLahir = resultSet.getString("tgl_lahir");
-         int idPeran = resultSet.getInt("id_peran");
+         int hargaMesin = resultSet.getInt("harga_mesin");
+         int idTipe = resultSet.getInt("id_tipe");
          int idProduksi = resultSet.getInt("id_produksi");
 
-         employeeList.add(new Employee(idEmployee, namaEmployee, alamat, tglLahir, idPeran, idProduksi));
+         mesinList.add(new Mesin(idMesin, kapasitasMesin, hargaMesin, idTipe, idProduksi));
       }
       resultSet.close();
       stmt.close();
 
-      return employeeList;
+      return mesinList;
    }
 
-   public void createPembelian(Employee employee) throws SQLException {
+   public void createMesin(Mesin mesin) throws SQLException {
       var conn = DBConnection.get();
-      var stmt = conn.prepareStatement("INSERT INTO employee VALUES (DEFAULT, ?, ?, ?, ?, ?)" );
-      stmt.setString(1, employee.getNamaEmployee());
-      stmt.setString(2, employee.getAlamat());
-      stmt.setString(3, employee.getTglLahir());
-      stmt.setInt(4, employee.getIdPeran());
-      stmt.setInt(5, employee.getIdProduksi());
+      var stmt = conn.prepareStatement("INSERT INTO mesin VALUES (DEFAULT, ?, ?, ?, ?)" );
+      stmt.setInt(1, mesin.getKapasitasMesin());
+      stmt.setInt(2, mesin.getHargaMesin());
+      stmt.setInt(4, mesin.getIdTipe());
+      stmt.setInt(5, mesin.getIdProduksi());
       stmt.execute();
    }
 
