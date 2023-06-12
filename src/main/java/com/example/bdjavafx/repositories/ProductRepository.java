@@ -37,8 +37,8 @@ public class ProductRepository {
         var stmt = conn.prepareStatement("INSERT INTO product VALUES (DEFAULT, ?, ?, ?, ?)" );
         stmt.setString(1, product.getTglBuat());
         stmt.setInt(2, product.getHargaProduk());
-        stmt.setInt(4, product.getMassaProduk());
-        stmt.setInt(5, product.getIdProduksi());
+        stmt.setInt(3, product.getMassaProduk());
+        stmt.setInt(4, product.getIdProduksi());
         stmt.execute();
     }
 

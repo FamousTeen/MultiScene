@@ -8,9 +8,8 @@ public class RawMaterial {
    private int idTipe;
    private int idProduksi;
 
-   public RawMaterial(int idMaterial, String tipeMaterial, int massaMaterial, int jumlahMaterial, int idTipe, int idProduksi) {
+   public RawMaterial(int idMaterial, int massaMaterial, int jumlahMaterial, int idTipe, int idProduksi) {
       this.idMaterial = idMaterial;
-      this.tipeMaterial = tipeMaterial;
       this.massaMaterial = massaMaterial;
       this.jumlahMaterial = jumlahMaterial;
       this.idTipe = idTipe;
