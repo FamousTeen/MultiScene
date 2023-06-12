@@ -35,7 +35,7 @@ public class ProduksiRepository {
 
    public void createProduksi(Produksi produksi) throws SQLException {
       var conn = DBConnection.get();
-      var stmt = conn.prepareStatement("INSERT INTO mesin VALUES (DEFAULT, ?, ?, ?, ?, ?)" );
+      var stmt = conn.prepareStatement("INSERT INTO produksi VALUES (DEFAULT, ?, ?, ?, ?, ?)" );
       stmt.setInt(1, produksi.getBiayaProduksi());
       stmt.setInt(2, produksi.getJumlahEmployee());
       stmt.setString(3, produksi.getAlamatWH());

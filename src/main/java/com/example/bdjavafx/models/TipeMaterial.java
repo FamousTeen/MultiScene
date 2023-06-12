@@ -2,12 +2,12 @@ package com.example.bdjavafx.models;
 
 public class TipeMaterial {
    private int idTipe;
-   private String fungsiMesin;
+   private String namaTipe;
    private String recycleType;
 
-   public TipeMaterial(int idTipe, String fungsiMesin, String recycleType) {
+   public TipeMaterial(int idTipe, String namaTipe, String recycleType) {
       this.idTipe = idTipe;
-      this.fungsiMesin = fungsiMesin;
+      this.namaTipe = namaTipe;
       this.recycleType = recycleType;
    }
 
@@ -19,12 +19,12 @@ public class TipeMaterial {
       this.idTipe = idTipe;
    }
 
-   public String getFungsiMesin() {
-      return fungsiMesin;
+   public String getNamaTipe() {
+      return namaTipe;
    }
 
-   public void setFungsiMesin(String fungsiMesin) {
-      this.fungsiMesin = fungsiMesin;
+   public void setNamaTipe(String namaTipe) {
+      this.namaTipe = namaTipe;
    }
 
    public String getRecycleType() {

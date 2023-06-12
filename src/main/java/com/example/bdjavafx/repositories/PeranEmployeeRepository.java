@@ -29,7 +29,7 @@ public class PeranEmployeeRepository {
 
    public void createPeran(PeranEmployee peran) throws SQLException {
       var conn = DBConnection.get();
-      var stmt = conn.prepareStatement("INSERT INTO employee VALUES (DEFAULT, ?, ?)" );
+      var stmt = conn.prepareStatement("INSERT INTO peran_employee VALUES (DEFAULT, ?, ?)" );
       stmt.setString(1, peran.getNamaPeran());
       stmt.setString(2, peran.getJabatan());
       stmt.execute();
