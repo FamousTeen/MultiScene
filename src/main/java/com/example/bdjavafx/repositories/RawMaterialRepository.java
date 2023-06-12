@@ -33,7 +33,7 @@ public class RawMaterialRepository {
 
     public void createRawMaterial(RawMaterial rawMaterial) throws SQLException {
         var conn = DBConnection.get();
-        var stmt = conn.prepareStatement("INSERT INTO employee VALUES (DEFAULT, ?, ?, ?, ?)" );
+        var stmt = conn.prepareStatement("INSERT INTO raw_material VALUES (DEFAULT, ?, ?, ?, ?)" );
         stmt.setInt(1, rawMaterial.getMassaMaterial());
         stmt.setInt(2, rawMaterial.getJumlahMaterial());
         stmt.setInt(3, rawMaterial.getIdTipe());
