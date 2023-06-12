@@ -36,8 +36,8 @@ public class MesinRepository {
       var stmt = conn.prepareStatement("INSERT INTO mesin VALUES (DEFAULT, ?, ?, ?, ?)" );
       stmt.setInt(1, mesin.getKapasitasMesin());
       stmt.setInt(2, mesin.getHargaMesin());
-      stmt.setInt(4, mesin.getIdTipe());
-      stmt.setInt(5, mesin.getIdProduksi());
+      stmt.setInt(3, mesin.getIdTipe());
+      stmt.setInt(4, mesin.getIdProduksi());
       stmt.execute();
    }
 
