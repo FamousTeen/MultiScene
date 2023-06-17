@@ -44,5 +44,13 @@ public class ProduksiRepository {
       stmt.execute();
    }
 
+   public void deleteProduksi() throws SQLException {
+      var conn = DBConnection.get();
+      var stmt1 = conn.prepareStatement("TRUNCATE TABLE produksi");
+      stmt1.execute();
+      var stmt = conn.prepareStatement("DELETE FROM produksi");
+      stmt.execute();
+   }
+
 }
 

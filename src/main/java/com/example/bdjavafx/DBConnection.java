@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * Untuk ambil koneksi bisa tinggal panggil fungsi `DBConnection.get()`.
  */
 public class DBConnection {
-    private static final String url = "jdbc:mysql://localhost:3306/proyek_bd";
+    private static final String url = "jdbc:mysql://localhost:3306/projek_bd";
     private static final String user = "root";
     private static final String password = "";
     private static Connection connection;

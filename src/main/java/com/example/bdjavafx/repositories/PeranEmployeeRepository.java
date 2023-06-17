@@ -34,4 +34,12 @@ public class PeranEmployeeRepository {
       stmt.setString(2, peran.getJabatan());
       stmt.execute();
    }
+
+   public void deletePeran() throws SQLException {
+      var conn = DBConnection.get();
+      var stmt1 = conn.prepareStatement("TRUNCATE TABLE peran_employee");
+      stmt1.execute();
+      var stmt = conn.prepareStatement("DELETE FROM peran_employee");
+      stmt.execute();
+   }
 }

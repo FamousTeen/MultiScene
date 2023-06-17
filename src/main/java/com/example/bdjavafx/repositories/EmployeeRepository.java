@@ -41,4 +41,12 @@ public class EmployeeRepository {
         stmt.execute();
     }
 
+    public void deleteEmployee() throws SQLException {
+        var conn = DBConnection.get();
+        var stmt1 = conn.prepareStatement("TRUNCATE TABLE employee");
+        stmt1.execute();
+    }
+
+
+
 }
