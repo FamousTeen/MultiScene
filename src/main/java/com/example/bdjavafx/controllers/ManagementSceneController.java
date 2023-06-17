@@ -1,14 +1,8 @@
 package com.example.bdjavafx.controllers;
 
 import com.example.bdjavafx.DBConnection;
-import com.example.bdjavafx.models.Employee;
-import com.example.bdjavafx.models.Mesin;
-import com.example.bdjavafx.models.PeranEmployee;
-import com.example.bdjavafx.models.Produksi;
-import com.example.bdjavafx.repositories.EmployeeRepository;
-import com.example.bdjavafx.repositories.MesinRepository;
-import com.example.bdjavafx.repositories.PeranEmployeeRepository;
-import com.example.bdjavafx.repositories.ProduksiRepository;
+import com.example.bdjavafx.models.*;
+import com.example.bdjavafx.repositories.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -41,6 +35,23 @@ public class ManagementSceneController implements Initializable {
     private MesinRepository rep_mesin;
     private ObservableList<Mesin> mesinList;
 
+    // Tipe_mesin
+    private TipeMesinRepository rep_tipeMesin;
+    private ObservableList<TipeMesin> tipeMesinList;
+
+    // Product
+    private ProductRepository rep_product;
+    private ObservableList<Product> productList;
+
+    // Raw Material
+    private RawMaterialRepository rep_raw;
+    private ObservableList<RawMaterial> rawList;
+
+    // Tipe Material
+    private TipeMaterialRepository repTipeMaterial;
+    private ObservableList<TipeMaterial> tipeMaterialList;
+
+
     @FXML
     public TextField textField;
     @FXML
@@ -56,6 +67,14 @@ public class ManagementSceneController implements Initializable {
     public TableView<Produksi> TABLE_PRODUKSI;
     @FXML
     public TableView<Mesin> TABLE_MESIN;
+    @FXML
+    public TableView<TipeMesin> TABLE_TIPE_MESIN;
+    @FXML
+    public TableView<Product> TABLE_PRODUCT;
+    @FXML
+    public TableView<RawMaterial> TABLE_RAW;
+    @FXML
+    public TableView<TipeMaterial> TABLE_TIPE_MATERIAL;
 
     @FXML
     public Button SUBMIT_BUTTON;
@@ -108,9 +127,51 @@ public class ManagementSceneController implements Initializable {
     @FXML
     public TableColumn<Mesin, Integer> HARGA_MESIN;
     @FXML
-    public TableColumn<Mesin, Integer> ID_TIPE;
+    public TableColumn<Mesin, Integer> ID_TIPE_FK;
     @FXML
     public TableColumn<Mesin, Integer> ID_PRODUKSI2;
+
+    // BUAT TABLE TIPE_MESIN
+    @FXML
+    public TableColumn<TipeMesin, Integer> ID_TIPE_PK;
+    @FXML
+    public TableColumn<TipeMesin, String> FUNGSI_MESIN;
+    @FXML
+    public TableColumn<TipeMesin, String> CARA_KERJA;
+
+    // BUAT TABLE PRODUCT
+    @FXML
+    public TableColumn<Product, Integer> ID_PRODUCT;
+    @FXML
+    public TableColumn<Product, String> TANGGAL_BUAT;
+    @FXML
+    public TableColumn<Product, Integer> HARGA_PRODUK;
+    @FXML
+    public TableColumn<Product, Integer> MASSA_PRODUK;
+    @FXML
+    public TableColumn<Product, Integer> ID_PRODUKSI3;
+
+    // BUAT TABLE RAW_MATERIAL
+    @FXML
+    public TableColumn<Product, Integer> ID_MATERIAL;
+    @FXML
+    public TableColumn<Product, String> TIPE_MATERIAL;
+    @FXML
+    public TableColumn<Product, Integer> MASSA_MATERIAL;
+    @FXML
+    public TableColumn<Product, Integer> JUMLAH_MATERIAL;
+    @FXML
+    public TableColumn<Product, Integer> ID_TIPE_FK2;
+    @FXML
+    public TableColumn<Product, Integer> ID_PRODUKSI4;
+
+    // BUAT TABLE TIPE_MATERIAL
+    @FXML
+    public TableColumn<TipeMaterial, Integer> ID_TIPE_PK2;
+    @FXML
+    public TableColumn<TipeMaterial, String> NAMA_TIPE;
+    @FXML
+    public TableColumn<TipeMaterial, String> RECYCLE_TYPE;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -119,6 +180,10 @@ public class ManagementSceneController implements Initializable {
             rep_peran = new PeranEmployeeRepository();
             rep_production = new ProduksiRepository();
             rep_mesin = new MesinRepository();
+            rep_tipeMesin = new TipeMesinRepository();
+            rep_product = new ProductRepository();
+            rep_raw = new RawMaterialRepository();
+            repTipeMaterial = new TipeMaterialRepository();
 
             // TABLE EMPLOYEE
             ID_EMP.setCellValueFactory(new PropertyValueFactory<>("idEmployee"));
@@ -145,13 +210,43 @@ public class ManagementSceneController implements Initializable {
             ID_MESIN.setCellValueFactory(new PropertyValueFactory<>("idMesin"));
             MESIN_CAP.setCellValueFactory(new PropertyValueFactory<>("kapasitasMesin"));
             HARGA_MESIN.setCellValueFactory(new PropertyValueFactory<>("hargaMesin"));
-            ID_TIPE.setCellValueFactory(new PropertyValueFactory<>("idTipe"));
+            ID_TIPE_FK.setCellValueFactory(new PropertyValueFactory<>("idTipe"));
             ID_PRODUKSI2.setCellValueFactory(new PropertyValueFactory<>("idProduksi"));
+
+            // TABLE TIPE_MESIN
+            ID_TIPE_PK.setCellValueFactory(new PropertyValueFactory<>("id_tipe"));
+            FUNGSI_MESIN.setCellValueFactory(new PropertyValueFactory<>("fungsi_mesin"));
+            CARA_KERJA.setCellValueFactory(new PropertyValueFactory<>("cara_kerja"));
+
+            // TABLE PRODUCT
+            ID_PRODUCT.setCellValueFactory(new PropertyValueFactory<>("idProduct"));
+            TANGGAL_BUAT.setCellValueFactory(new PropertyValueFactory<>("tglBuat"));
+            HARGA_PRODUK.setCellValueFactory(new PropertyValueFactory<>("hargaProduk"));
+            MASSA_PRODUK.setCellValueFactory(new PropertyValueFactory<>("massaProduk"));
+            ID_PRODUKSI3.setCellValueFactory(new PropertyValueFactory<>("idProduksi"));
+
+            // TABLE RAW_MATERIAL
+            ID_MATERIAL.setCellValueFactory(new PropertyValueFactory<>("idMaterial"));
+            TIPE_MATERIAL.setCellValueFactory(new PropertyValueFactory<>("tipeMaterial"));
+            MASSA_MATERIAL.setCellValueFactory(new PropertyValueFactory<>("massaMaterial"));
+            JUMLAH_MATERIAL.setCellValueFactory(new PropertyValueFactory<>("jumlahMaterial"));
+            ID_TIPE_FK2.setCellValueFactory(new PropertyValueFactory<>("idTipe"));
+            ID_PRODUKSI4.setCellValueFactory(new PropertyValueFactory<>("idProduksi"));
+
+            // TABLE TIPE_MATERIAL
+            ID_TIPE_PK2.setCellValueFactory(new PropertyValueFactory<>("idTipe"));
+            NAMA_TIPE.setCellValueFactory(new PropertyValueFactory<>("namaTipe"));
+            RECYCLE_TYPE.setCellValueFactory(new PropertyValueFactory<>("recycleType"));
+
 
             employeeList = FXCollections.observableArrayList();
             peranList = FXCollections.observableArrayList();
             produksiList = FXCollections.observableArrayList();
             mesinList = FXCollections.observableArrayList();
+            tipeMesinList = FXCollections.observableArrayList();
+            productList = FXCollections.observableArrayList();
+            rawList = FXCollections.observableArrayList();
+            tipeMaterialList = FXCollections.observableArrayList();
 
             var conn = DBConnection.get();
             var stmt = conn.prepareStatement("SET FOREIGN_KEY_CHECKS=0");
@@ -169,6 +264,10 @@ public class ManagementSceneController implements Initializable {
             TABLE_PERAN.setItems(peranList);
             TABLE_PRODUKSI.setItems(produksiList);
             TABLE_MESIN.setItems(mesinList);
+            TABLE_TIPE_MESIN.setItems(tipeMesinList);
+            TABLE_PRODUCT.setItems(productList);
+            TABLE_RAW.setItems(rawList);
+            TABLE_TIPE_MATERIAL.setItems(tipeMaterialList);
 
         } catch (SQLException e) {
             System.out.println("Error: e");
@@ -182,6 +281,10 @@ public class ManagementSceneController implements Initializable {
         peranList.setAll(rep_peran.getAll());
         produksiList.setAll(rep_production.getAll());
         mesinList.setAll(rep_mesin.getAll());
+        tipeMesinList.setAll(rep_tipeMesin.getAll());
+        productList.setAll(rep_product.getAll());
+        rawList.setAll(rep_raw.getAll());
+        tipeMaterialList.setAll(repTipeMaterial.getAll());
     }
 
 

@@ -1,7 +1,6 @@
 package com.example.bdjavafx.models;
 
 public class TipeMesin {
-
     private int id_tipe;
     private String fungsi_mesin;
 
