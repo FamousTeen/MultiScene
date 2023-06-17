@@ -54,7 +54,8 @@ public class ManagementSceneController implements Initializable {
     public TableView<PeranEmployee> TABLE_PERAN;
     @FXML
     public TableView<Produksi> TABLE_PRODUKSI;
-    @FXML TableView<Mesin> TABLE_MESIN;
+    @FXML
+    public TableView<Mesin> TABLE_MESIN;
 
     @FXML
     public Button SUBMIT_BUTTON;
@@ -142,7 +143,7 @@ public class ManagementSceneController implements Initializable {
 
             // TABLE MESIN
             ID_MESIN.setCellValueFactory(new PropertyValueFactory<>("idMesin"));
-            MESIN_CAP.setCellValueFactory(new PropertyValueFactory<>("kapasitas"));
+            MESIN_CAP.setCellValueFactory(new PropertyValueFactory<>("kapasitasMesin"));
             HARGA_MESIN.setCellValueFactory(new PropertyValueFactory<>("hargaMesin"));
             ID_TIPE.setCellValueFactory(new PropertyValueFactory<>("idTipe"));
             ID_PRODUKSI2.setCellValueFactory(new PropertyValueFactory<>("idProduksi"));
@@ -150,6 +151,7 @@ public class ManagementSceneController implements Initializable {
             employeeList = FXCollections.observableArrayList();
             peranList = FXCollections.observableArrayList();
             produksiList = FXCollections.observableArrayList();
+            mesinList = FXCollections.observableArrayList();
 
             var conn = DBConnection.get();
             var stmt = conn.prepareStatement("SET FOREIGN_KEY_CHECKS=0");
@@ -166,6 +168,7 @@ public class ManagementSceneController implements Initializable {
             TABLE_EMP.setItems(employeeList);
             TABLE_PERAN.setItems(peranList);
             TABLE_PRODUKSI.setItems(produksiList);
+            TABLE_MESIN.setItems(mesinList);
 
         } catch (SQLException e) {
             System.out.println("Error: e");
@@ -178,6 +181,7 @@ public class ManagementSceneController implements Initializable {
         employeeList.setAll(rep_emp.getAll());
         peranList.setAll(rep_peran.getAll());
         produksiList.setAll(rep_production.getAll());
+        mesinList.setAll(rep_mesin.getAll());
     }
 
 
