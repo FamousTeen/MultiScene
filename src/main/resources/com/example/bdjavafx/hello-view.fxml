@@ -110,6 +110,17 @@
                         </TableColumn>
                      </columns>
                   </TableView>
+                  <TableView fx:id="TABLE_TIPE_MATERIAL" layoutX="4177.0" layoutY="14.0" prefHeight="200.0" prefWidth="333.0">
+                     <columns>
+                        <TableColumn prefWidth="706.399951171875" text="TIPE_MATERIAL">
+                           <columns>
+                              <TableColumn fx:id="ID_TIPE_PK2" prefWidth="95.999755859375" text="ID_TIPE" />
+                              <TableColumn fx:id="NAMA_TIPE" prefWidth="111.199951171875" text="NAMA_TIPE" />
+                              <TableColumn fx:id="RECYCLE_TYPE" minWidth="0.0" prefWidth="126.39990234375" text="RECYCLE_TYPE" />
+                           </columns>
+                        </TableColumn>
+                     </columns>
+                  </TableView>
                </children>
             </AnchorPane>
         </content>
