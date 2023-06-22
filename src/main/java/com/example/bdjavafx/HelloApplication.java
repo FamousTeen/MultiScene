@@ -3,7 +3,7 @@ package com.example.bdjavafx;
 import com.example.bdjavafx.scenes.BaseScene;
 import com.example.bdjavafx.scenes.PembelianScene;
 import com.example.bdjavafx.scenes.SceneConstructor;
-import com.example.bdjavafx.scenes.SecondScene;
+import com.example.bdjavafx.scenes.CreateScene;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -37,11 +37,11 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         scenes = Map.of(
                 "pembelian", (s) -> new PembelianScene(),
-                "menu", (s) -> new SecondScene()
+                "create", (s) -> new CreateScene()
         );
 
         HelloApplication.stage = stage;
-        getScene("menu").show();
+        getScene("pembelian").show();
     }
 
     public static void main(String[] args) throws SQLException {

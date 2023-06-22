@@ -31,7 +31,7 @@ public class TipeMesinRepository {
         return tipeMesinList;
     }
 
-    public void createMesin(TipeMesin tipeMesin) throws SQLException {
+    public void createTipeMesin(TipeMesin tipeMesin) throws SQLException {
         var conn = DBConnection.get();
         var stmt = conn.prepareStatement("INSERT INTO tipe_mesin VALUES (DEFAULT, ?, ?)" );
         stmt.setString(2, tipeMesin.getFungsi_mesin());

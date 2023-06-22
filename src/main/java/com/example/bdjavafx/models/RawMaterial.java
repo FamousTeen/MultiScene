@@ -2,7 +2,6 @@ package com.example.bdjavafx.models;
 
 public class RawMaterial {
    private int idMaterial;
-   private String tipeMaterial;
    private int massaMaterial;
    private int jumlahMaterial;
    private int idTipe;
@@ -24,13 +23,6 @@ public class RawMaterial {
       this.idMaterial = idMaterial;
    }
 
-   public String getTipeMaterial() {
-      return tipeMaterial;
-   }
-
-   public void setTipeMaterial(String tipeMaterial) {
-      this.tipeMaterial = tipeMaterial;
-   }
 
    public int getMassaMaterial() {
       return massaMaterial;

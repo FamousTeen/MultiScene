@@ -1,7 +1,7 @@
 package com.example.bdjavafx.scenes;
 
-public class SecondScene extends BaseScene {
-    public SecondScene() {
+public class CreateScene extends BaseScene {
+    public CreateScene() {
         super();
 
         this.title = "Menu";

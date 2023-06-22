@@ -1,7 +1,6 @@
 package com.example.bdjavafx.repositories;
 
 import com.example.bdjavafx.DBConnection;
-import com.example.bdjavafx.models.Employee;
 import com.example.bdjavafx.models.Mesin;
 
 import java.sql.*;

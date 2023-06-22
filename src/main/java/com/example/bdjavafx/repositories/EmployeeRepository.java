@@ -32,7 +32,8 @@ public class EmployeeRepository {
 
     public void createEmployee(Employee employee) throws SQLException {
         var conn = DBConnection.get();
-        var stmt = conn.prepareStatement("INSERT INTO employee VALUES (DEFAULT, ?, ?, ?, ?, ?)" );
+        var stmt = conn.prepareStatement("INSERT INTO employee " +
+                "VALUES (DEFAULT, ?, ?, ?, ?, ?)" );
         stmt.setString(1, employee.getNamaEmployee());
         stmt.setString(2, employee.getAlamat());
         stmt.setString(3, employee.getTglLahir());

@@ -1,6 +1,7 @@
 package com.example.bdjavafx.controllers;
 
 import com.example.bdjavafx.DBConnection;
+import com.example.bdjavafx.HelloApplication;
 import com.example.bdjavafx.models.*;
 import com.example.bdjavafx.repositories.*;
 import javafx.collections.FXCollections;
@@ -14,50 +15,43 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ManagementSceneController implements Initializable {
     // Employee
-    private EmployeeRepository rep_emp;
-    private ObservableList<Employee> employeeList;
+    protected EmployeeRepository rep_emp = new EmployeeRepository();;
+    protected ObservableList<Employee> employeeList = FXCollections.observableArrayList();
 
     // Peran_employee
-    private PeranEmployeeRepository rep_peran;
-    private ObservableList<PeranEmployee> peranList;
+    protected PeranEmployeeRepository rep_peran = new PeranEmployeeRepository();
+    protected ObservableList<PeranEmployee> peranList = FXCollections.observableArrayList();;
 
     // Produksi
-    private ProduksiRepository rep_production;
-    private ObservableList<Produksi> produksiList;
+    protected ProduksiRepository rep_production = new ProduksiRepository();
+    protected ObservableList<Produksi> produksiList = FXCollections.observableArrayList();;
 
     // Mesin
-    private MesinRepository rep_mesin;
-    private ObservableList<Mesin> mesinList;
+    protected MesinRepository rep_mesin = new MesinRepository();
+    protected ObservableList<Mesin> mesinList = FXCollections.observableArrayList();;
 
     // Tipe_mesin
-    private TipeMesinRepository rep_tipeMesin;
-    private ObservableList<TipeMesin> tipeMesinList;
+    protected TipeMesinRepository rep_tipeMesin = new TipeMesinRepository();
+    protected ObservableList<TipeMesin> tipeMesinList = FXCollections.observableArrayList();;
 
     // Product
-    private ProductRepository rep_product;
-    private ObservableList<Product> productList;
+    protected ProductRepository rep_product = new ProductRepository();
+    protected ObservableList<Product> productList = FXCollections.observableArrayList();;
 
     // Raw Material
-    private RawMaterialRepository rep_raw;
-    private ObservableList<RawMaterial> rawList;
+    protected RawMaterialRepository rep_raw = new RawMaterialRepository();
+    protected ObservableList<RawMaterial> rawList = FXCollections.observableArrayList();;
 
     // Tipe Material
-    private TipeMaterialRepository repTipeMaterial;
-    private ObservableList<TipeMaterial> tipeMaterialList;
-
-
-    @FXML
-    public TextField textField;
-    @FXML
-    public TextField textField1;
-    @FXML
-    public TextField textField11;
+    protected TipeMaterialRepository repTipeMaterial = new TipeMaterialRepository();
+    protected ObservableList<TipeMaterial> tipeMaterialList = FXCollections.observableArrayList();;
 
     @FXML
     public TableView<Employee> TABLE_EMP;
@@ -75,13 +69,18 @@ public class ManagementSceneController implements Initializable {
     public TableView<RawMaterial> TABLE_RAW;
     @FXML
     public TableView<TipeMaterial> TABLE_TIPE_MATERIAL;
+//
+//    @FXML
+//    public Button SUBMIT_BUTTON;
+//    @FXML
+//    public Button SUBMIT_BUTTON1;
+//    @FXML
+//    public Button SUBMIT_BUTTON11;
 
+
+//    BUTTON
     @FXML
-    public Button SUBMIT_BUTTON;
-    @FXML
-    public Button SUBMIT_BUTTON1;
-    @FXML
-    public Button SUBMIT_BUTTON11;
+    protected Button CREATE_BUTTON;
 
     // BUAT TABLE EMPLOYEE
     @FXML
@@ -155,8 +154,6 @@ public class ManagementSceneController implements Initializable {
     @FXML
     public TableColumn<Product, Integer> ID_MATERIAL;
     @FXML
-    public TableColumn<Product, String> TIPE_MATERIAL;
-    @FXML
     public TableColumn<Product, Integer> MASSA_MATERIAL;
     @FXML
     public TableColumn<Product, Integer> JUMLAH_MATERIAL;
@@ -176,14 +173,6 @@ public class ManagementSceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            rep_emp = new EmployeeRepository();
-            rep_peran = new PeranEmployeeRepository();
-            rep_production = new ProduksiRepository();
-            rep_mesin = new MesinRepository();
-            rep_tipeMesin = new TipeMesinRepository();
-            rep_product = new ProductRepository();
-            rep_raw = new RawMaterialRepository();
-            repTipeMaterial = new TipeMaterialRepository();
 
             // TABLE EMPLOYEE
             ID_EMP.setCellValueFactory(new PropertyValueFactory<>("idEmployee"));
@@ -227,7 +216,6 @@ public class ManagementSceneController implements Initializable {
 
             // TABLE RAW_MATERIAL
             ID_MATERIAL.setCellValueFactory(new PropertyValueFactory<>("idMaterial"));
-            TIPE_MATERIAL.setCellValueFactory(new PropertyValueFactory<>("tipeMaterial"));
             MASSA_MATERIAL.setCellValueFactory(new PropertyValueFactory<>("massaMaterial"));
             JUMLAH_MATERIAL.setCellValueFactory(new PropertyValueFactory<>("jumlahMaterial"));
             ID_TIPE_FK2.setCellValueFactory(new PropertyValueFactory<>("idTipe"));
@@ -239,22 +227,13 @@ public class ManagementSceneController implements Initializable {
             RECYCLE_TYPE.setCellValueFactory(new PropertyValueFactory<>("recycleType"));
 
 
-            employeeList = FXCollections.observableArrayList();
-            peranList = FXCollections.observableArrayList();
-            produksiList = FXCollections.observableArrayList();
-            mesinList = FXCollections.observableArrayList();
-            tipeMesinList = FXCollections.observableArrayList();
-            productList = FXCollections.observableArrayList();
-            rawList = FXCollections.observableArrayList();
-            tipeMaterialList = FXCollections.observableArrayList();
-
             var conn = DBConnection.get();
             var stmt = conn.prepareStatement("SET FOREIGN_KEY_CHECKS=0");
             stmt.execute();
-
-            rep_peran.deletePeran();
-            rep_production.deleteProduksi();
-            rep_emp.deleteEmployee();
+//            rep_peran.deletePeran();
+////            rep_production.deleteProduksi();
+////            rep_emp.deleteEmployee();
+//
 
             stmt = conn.prepareStatement("SET FOREIGN_KEY_CHECKS=1");
             stmt.execute();
@@ -287,6 +266,18 @@ public class ManagementSceneController implements Initializable {
         tipeMaterialList.setAll(repTipeMaterial.getAll());
     }
 
+    @FXML
+    TextField textField;
+    @FXML
+    TextField textField1;
+    @FXML
+    TextField textField2;
+
+    @FXML
+    public void toCreateScene() throws IOException {
+        HelloApplication.getScene("create").show();
+    }
+
 
     @FXML
     public void submit() throws Exception {
@@ -314,7 +305,7 @@ public class ManagementSceneController implements Initializable {
 //     * @param properties property pada model
 //     * @param <T> model type (biarin kosong aja, selama sudah ada di declarationnya TableView)
 //     */
-//    private<T> void setPropertyValueFactories(TableView<T> table, String ...properties) {
+//    protected<T> void setPropertyValueFactories(TableView<T> table, String ...properties) {
 //        var columns = table.getColumns();
 //
 //        assert properties.length == columns.size();
