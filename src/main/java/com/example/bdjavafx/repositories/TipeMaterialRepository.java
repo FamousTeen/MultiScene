@@ -18,7 +18,7 @@ public class TipeMaterialRepository {
 
       List<TipeMaterial> tipeMaterialList = new ArrayList<>();
       while (resultSet.next()) {
-         int idTipe = resultSet.getInt("id_produksi");
+         int idTipe = resultSet.getInt("id_tipe");
          String namaTipe = resultSet.getString("nama_tipe");
          String recycleType = resultSet.getString("recycle_type");
 

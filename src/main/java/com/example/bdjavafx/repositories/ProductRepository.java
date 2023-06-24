@@ -18,7 +18,7 @@ public class ProductRepository {
 
         List<Product> productList = new ArrayList<>();
         while (resultSet.next()) {
-            int idProduct = resultSet.getInt("id_mesin");
+            int idProduct = resultSet.getInt("id_product");
             String tglBuat = resultSet.getString("tgl_buat");
             int hargaProduk = resultSet.getInt("harga_produk");
             int massaProduk = resultSet.getInt("massa_produk");

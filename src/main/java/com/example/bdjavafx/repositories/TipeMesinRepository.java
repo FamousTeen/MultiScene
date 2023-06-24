@@ -19,7 +19,7 @@ public class TipeMesinRepository {
         List<TipeMesin> tipeMesinList = new ArrayList<>();
         while (resultSet.next()) {
             int idTipe = resultSet.getInt("id_tipe");
-            String fungsiMesin = resultSet.getString("kapasitas_mesin");
+            String fungsiMesin = resultSet.getString("fungsi_mesin");
             String cara_kerja = resultSet.getString("cara_kerja");
 
 
@@ -34,8 +34,8 @@ public class TipeMesinRepository {
     public void createTipeMesin(TipeMesin tipeMesin) throws SQLException {
         var conn = DBConnection.get();
         var stmt = conn.prepareStatement("INSERT INTO tipe_mesin VALUES (DEFAULT, ?, ?)" );
-        stmt.setString(2, tipeMesin.getFungsi_mesin());
-        stmt.setString(3, tipeMesin.getCara_kerja());
+        stmt.setString(1, tipeMesin.getFungsi_mesin());
+        stmt.setString(2, tipeMesin.getCara_kerja());
         stmt.execute();
     }
     public void updateTipeMesin(TipeMesin tipeMesin) throws SQLException {

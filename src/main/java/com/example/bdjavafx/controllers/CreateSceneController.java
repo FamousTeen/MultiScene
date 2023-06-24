@@ -126,7 +126,7 @@ public class CreateSceneController extends ManagementSceneController implements 
             int idPeran = Integer.parseInt(FIELD_5.getText());
             int idProduksi = Integer.parseInt(FIELD_6.getText());
             try {
-                super.rep_emp.createEmployee(new Employee(id, nama, address, tglLahir, idPeran, idProduksi));
+                rep_emp.createEmployee(new Employee(id, nama, address, tglLahir, idPeran, idProduksi));
                 refreshTable();
             } catch (SQLException s) {
                 System.out.println("Error " + s);

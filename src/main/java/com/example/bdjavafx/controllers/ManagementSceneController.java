@@ -20,38 +20,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ManagementSceneController implements Initializable {
-    // Employee
-    public EmployeeRepository rep_emp;
-    protected ObservableList<Employee> employeeList = FXCollections.observableArrayList();
-
-    // Peran_employee
-    protected PeranEmployeeRepository rep_peran;
-    protected ObservableList<PeranEmployee> peranList = FXCollections.observableArrayList();;
-
-    // Produksi
-    protected ProduksiRepository rep_production;
-    protected ObservableList<Produksi> produksiList = FXCollections.observableArrayList();;
-
-    // Mesin
-    protected MesinRepository rep_mesin;
-    protected ObservableList<Mesin> mesinList = FXCollections.observableArrayList();;
-
-    // Tipe_mesin
-    protected TipeMesinRepository rep_tipeMesin;
-    protected ObservableList<TipeMesin> tipeMesinList = FXCollections.observableArrayList();;
-
-    // Product
-    protected ProductRepository rep_product;
-    protected ObservableList<Product> productList = FXCollections.observableArrayList();;
-
-    // Raw Material
-    protected RawMaterialRepository rep_raw;
-    protected ObservableList<RawMaterial> rawList = FXCollections.observableArrayList();
-
-    // Tipe Material
-    protected  TipeMaterialRepository repTipeMaterial;
-    protected ObservableList<TipeMaterial> tipeMaterialList = FXCollections.observableArrayList();;
-
     @FXML
     public  TableView<Employee> TABLE_EMP;
     @FXML
@@ -184,23 +152,41 @@ public class ManagementSceneController implements Initializable {
     @FXML
     private TextField FIELD_6;
 
-//    private UpdateSceneController updateSceneController;
+    // Employee
+    protected EmployeeRepository rep_emp = new EmployeeRepository();
+    protected ObservableList<Employee> employeeList = FXCollections.observableArrayList();
 
-//    public void setUpdateSceneController(UpdateSceneController controller) {
-//        this.updateSceneController = controller;
-//    }
+    // Peran_employee
+    protected PeranEmployeeRepository rep_peran = new PeranEmployeeRepository();
+    protected ObservableList<PeranEmployee> peranList = FXCollections.observableArrayList();
+
+    // Produksi
+    protected ProduksiRepository rep_production = new ProduksiRepository();
+    protected ObservableList<Produksi> produksiList = FXCollections.observableArrayList();
+
+    // Mesin
+    protected MesinRepository rep_mesin = new MesinRepository();
+    protected ObservableList<Mesin> mesinList = FXCollections.observableArrayList();
+
+    // Tipe_mesin
+    protected TipeMesinRepository rep_tipeMesin = new TipeMesinRepository();
+    protected ObservableList<TipeMesin> tipeMesinList = FXCollections.observableArrayList();
+
+    // Product
+    protected ProductRepository rep_product = new ProductRepository();
+    protected ObservableList<Product> productList = FXCollections.observableArrayList();
+
+    // Raw Material
+    protected RawMaterialRepository rep_raw = new RawMaterialRepository();
+    protected ObservableList<RawMaterial> rawList = FXCollections.observableArrayList();
+
+    // Tipe Material
+    protected  TipeMaterialRepository repTipeMaterial = new TipeMaterialRepository();
+    protected ObservableList<TipeMaterial> tipeMaterialList = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            rep_emp = new EmployeeRepository();
-            rep_production = new ProduksiRepository();
-            rep_product = new ProductRepository();
-            rep_mesin = new MesinRepository();
-            repTipeMaterial = new TipeMaterialRepository();
-            rep_raw = new RawMaterialRepository();
-            rep_tipeMesin = new TipeMesinRepository();
-            rep_peran = new PeranEmployeeRepository();
-
             // TABLE EMPLOYEE
             ID_EMP.setCellValueFactory(new PropertyValueFactory<>("idEmployee"));
             NAMA_EMP.setCellValueFactory(new PropertyValueFactory<>("namaEmployee"));
@@ -253,68 +239,12 @@ public class ManagementSceneController implements Initializable {
             NAMA_TIPE.setCellValueFactory(new PropertyValueFactory<>("namaTipe"));
             RECYCLE_TYPE.setCellValueFactory(new PropertyValueFactory<>("recycleType"));
 
-//            TABLE_EMP.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//                if (newValue != null) {
-////                    UpdateSceneController.setData(newValue);
-////                    UpdateSceneController.setData(newValue);
-//                }
-//            });
-//            TABLE_PERAN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//                if (newValue != null) {
-////                    UpdateSceneController.setData(newValue);
-////                    UpdateSceneController.setData(newValue);
-//                }
-//            });
-//            TABLE_RAW.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//                if (newValue != null) {
-////                    UpdateSceneController.setData(newValue);
-////                    UpdateSceneController.setData(newValue);
-//                }
-//            });
-//            TABLE_PRODUKSI.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//                if (newValue != null) {
-////                    UpdateSceneController.setData(newValue);
-////                    UpdateSceneController.setData(newValue);
-//                }
-//            });
-//            TABLE_PERAN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//                if (newValue != null) {
-////                    UpdateSceneController.setData(newValue);
-////                    UpdateSceneController.setData(newValue);
-//                }
-//            });
-//            TABLE_TIPE_MESIN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//                if (newValue != null) {
-////                    UpdateSceneController.setData(newValue);
-////                    UpdateSceneController.setData(newValue);
-//                }
-//            });
-//            TABLE_TIPE_MATERIAL.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//                if (newValue != null) {
-////                    UpdateSceneController.setData(newValue);
-////                    UpdateSceneController.setData(newValue);
-//                }
-//            });
-//            TABLE_MESIN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//                if (newValue != null) {
-////                    UpdateSceneController.setData(newValue);
-////                    UpdateSceneController.setData(newValue);
-//                }
-//            });
-//            TABLE_PRODUCT.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//                if (newValue != null) {
-////                    UpdateSceneController.setData(newValue);
-////                    UpdateSceneController.setData(newValue);
-//                }
-//            });
-
             var conn = DBConnection.get();
             var stmt = conn.prepareStatement("SET FOREIGN_KEY_CHECKS=0");
             stmt.execute();
 //            rep_peran.deletePeran();
 ////            rep_production.deleteProduksi();
 ////            rep_emp.deleteEmployee();
-//
 
             stmt = conn.prepareStatement("SET FOREIGN_KEY_CHECKS=1");
             stmt.execute();
@@ -346,13 +276,6 @@ public class ManagementSceneController implements Initializable {
         rawList.setAll(rep_raw.getAll());
         tipeMaterialList.setAll(repTipeMaterial.getAll());
     }
-
-    @FXML
-    TextField textField;
-    @FXML
-    TextField textField1;
-    @FXML
-    TextField textField2;
 
     @FXML
     public void toCreateScene() throws IOException {
@@ -475,50 +398,42 @@ public class ManagementSceneController implements Initializable {
     public void delete() throws Exception {
         Employee selectedData1 = TABLE_EMP.getSelectionModel().getSelectedItem();
         if (selectedData1 != null) {
-            int id = Integer.parseInt(FIELD_1.getText());
-            rep_emp.deleteEmployee(id);
+            rep_emp.deleteEmployee(selectedData1.getIdEmployee());
             refreshTable();
         }
         RawMaterial selectedData2 = TABLE_RAW.getSelectionModel().getSelectedItem();
         if (selectedData2 != null) {
-            int id = Integer.parseInt(FIELD_1.getText());
-            rep_raw.deleteRawMaterial(id);
+            rep_raw.deleteRawMaterial(selectedData2.getIdMaterial());
             refreshTable();
         }
         Product selectedData3 = TABLE_PRODUCT.getSelectionModel().getSelectedItem();
         if (selectedData3 != null) {
-            int id = Integer.parseInt(FIELD_1.getText());
-            rep_product.deleteProduct(id);
+            rep_product.deleteProduct(selectedData3.getIdProduct());
             refreshTable();
         }
         Produksi selectedData4 = TABLE_PRODUKSI.getSelectionModel().getSelectedItem();
         if (selectedData4 != null) {
-            int id = Integer.parseInt(FIELD_1.getText());
-            rep_production.deleteProduksi(id);
+            rep_production.deleteProduksi(selectedData4.getIdProduksi());
             refreshTable();
         }
         Mesin selectedData5 = TABLE_MESIN.getSelectionModel().getSelectedItem();
         if (selectedData5 != null) {
-            int id = Integer.parseInt(FIELD_1.getText());
-            rep_mesin.deleteMesin(id);
+            rep_mesin.deleteMesin(selectedData5.getIdMesin());
             refreshTable();
         }
         PeranEmployee selectedData6 = TABLE_PERAN.getSelectionModel().getSelectedItem();
         if (selectedData6 != null) {
-            int id = Integer.parseInt(FIELD_1.getText());
-            rep_peran.deletePeranEmployee(id);
+            rep_peran.deletePeranEmployee(selectedData6.getIdPeran());
             refreshTable();
         }
         TipeMaterial selectedData7 = TABLE_TIPE_MATERIAL.getSelectionModel().getSelectedItem();
         if (selectedData7 != null) {
-            int id = Integer.parseInt(FIELD_1.getText());
-            repTipeMaterial.deleteTipeMaterial(id);
+            repTipeMaterial.deleteTipeMaterial(selectedData7.getIdTipe());
             refreshTable();
         }
         TipeMesin selectedData8 = TABLE_TIPE_MESIN.getSelectionModel().getSelectedItem();
         if (selectedData8 != null) {
-            int id = Integer.parseInt(FIELD_1.getText());
-            rep_tipeMesin.deleteProduksi(id);
+            rep_tipeMesin.deleteProduksi(selectedData8.getId_tipe());
             refreshTable();
         }
     }
