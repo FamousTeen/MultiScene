@@ -42,10 +42,11 @@ public class EmployeeRepository {
         stmt.execute();
     }
 
-    public void deleteEmployee() throws SQLException {
+    public void deleteEmployee(int idEmployee) throws SQLException {
         var conn = DBConnection.get();
         var stmt = conn.prepareStatement("DELETE FROM employee\n" +
                 "WHERE id_employee = ?");
+        stmt.setInt(1,idEmployee);
         stmt.execute();
     }
 

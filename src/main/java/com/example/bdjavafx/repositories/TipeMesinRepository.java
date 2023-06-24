@@ -47,10 +47,11 @@ public class TipeMesinRepository {
         stmt.setString(2, tipeMesin.getCara_kerja());
         stmt.execute();
     }
-    public void deleteTipeMesin() throws SQLException {
+    public void deleteProduksi(int idTipeMesin) throws SQLException {
         var conn = DBConnection.get();
         var stmt = conn.prepareStatement("DELETE FROM tipe_mesin\n" +
-                "WHERE id_tipe = ?");
+                "WHERE id_mesin = ?");
+        stmt.setInt(1,idTipeMesin);
         stmt.execute();
     }
 

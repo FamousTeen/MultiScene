@@ -45,11 +45,11 @@ public class ProduksiRepository {
       stmt.execute();
    }
 
-   public void deleteProduksi(Produksi produksi) throws SQLException {
+   public void deleteProduksi(int idproduksi) throws SQLException {
       var conn = DBConnection.get();
       var stmt = conn.prepareStatement("DELETE FROM produksi\n" +
               "WHERE id_produksi = ?");
-      stmt.setInt(1,produksi.getIdProduksi());
+      stmt.setInt(1,idproduksi);
       stmt.execute();
    }
    public void updateProduksi(Produksi produksi) throws SQLException {

@@ -472,6 +472,57 @@ public class ManagementSceneController implements Initializable {
 
 
     @FXML
+    public void delete() throws Exception {
+        Employee selectedData1 = TABLE_EMP.getSelectionModel().getSelectedItem();
+        if (selectedData1 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            rep_emp.deleteEmployee(id);
+            refreshTable();
+        }
+        RawMaterial selectedData2 = TABLE_RAW.getSelectionModel().getSelectedItem();
+        if (selectedData2 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            rep_raw.deleteRawMaterial(id);
+            refreshTable();
+        }
+        Product selectedData3 = TABLE_PRODUCT.getSelectionModel().getSelectedItem();
+        if (selectedData3 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            rep_product.deleteProduct(id);
+            refreshTable();
+        }
+        Produksi selectedData4 = TABLE_PRODUKSI.getSelectionModel().getSelectedItem();
+        if (selectedData4 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            rep_production.deleteProduksi(id);
+            refreshTable();
+        }
+        Mesin selectedData5 = TABLE_MESIN.getSelectionModel().getSelectedItem();
+        if (selectedData5 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            rep_mesin.deleteMesin(id);
+            refreshTable();
+        }
+        PeranEmployee selectedData6 = TABLE_PERAN.getSelectionModel().getSelectedItem();
+        if (selectedData6 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            rep_peran.deletePeranEmployee(id);
+            refreshTable();
+        }
+        TipeMaterial selectedData7 = TABLE_TIPE_MATERIAL.getSelectionModel().getSelectedItem();
+        if (selectedData7 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            repTipeMaterial.deleteTipeMaterial(id);
+            refreshTable();
+        }
+        TipeMesin selectedData8 = TABLE_TIPE_MESIN.getSelectionModel().getSelectedItem();
+        if (selectedData8 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            rep_tipeMesin.deleteProduksi(id);
+            refreshTable();
+        }
+    }
+    @FXML
     public void submit() throws Exception {
         Employee selectedData1 = TABLE_EMP.getSelectionModel().getSelectedItem();
         if (selectedData1 != null) {

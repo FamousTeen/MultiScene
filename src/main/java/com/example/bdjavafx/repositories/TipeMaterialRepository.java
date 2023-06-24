@@ -46,10 +46,11 @@ public class TipeMaterialRepository {
       stmt.setString(2, tipeMaterial.getRecycleType());
       stmt.execute();
    }
-   public void deleteTipeMaterial() throws SQLException {
+   public void deleteTipeMaterial(int idTipe) throws SQLException {
       var conn = DBConnection.get();
       var stmt = conn.prepareStatement("DELETE FROM tipe_material\n" +
               "WHERE id_tipe = ?");
+      stmt.setInt(1,idTipe);
       stmt.execute();
    }
 

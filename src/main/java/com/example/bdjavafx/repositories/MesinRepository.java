@@ -54,10 +54,11 @@ public class MesinRepository {
       stmt.setInt(5, mesin.getIdMesin());
       stmt.execute();
    }
-   public void deleteMesin() throws SQLException {
+   public void deleteMesin(int idMesin) throws SQLException {
       var conn = DBConnection.get();
       var stmt = conn.prepareStatement("DELETE FROM mesin\n" +
               "WHERE id_mesin = ?");
+      stmt.setInt(1,idMesin);
       stmt.execute();
    }
 

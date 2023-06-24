@@ -55,11 +55,11 @@ public class ProductRepository {
         stmt.setInt(5, product.getIdProduct());
         stmt.execute();
     }
-    public void deleteProduct() throws SQLException {
+    public void deleteProduct(int idproduct) throws SQLException {
         var conn = DBConnection.get();
         var stmt = conn.prepareStatement("DELETE FROM product\n" +
                 "WHERE id_product = ?");
+        stmt.setInt(1,idproduct);
         stmt.execute();
     }
-
 }
