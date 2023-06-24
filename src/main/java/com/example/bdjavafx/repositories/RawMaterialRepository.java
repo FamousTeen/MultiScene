@@ -52,5 +52,11 @@ public class RawMaterialRepository {
         stmt.setInt(4, rawMaterial.getIdProduksi());
         stmt.execute();
     }
+    public void deleteRawMaterial() throws SQLException {
+        var conn = DBConnection.get();
+        var stmt = conn.prepareStatement("DELETE FROM raw_material\n" +
+                "WHERE id_material = ?");
+        stmt.execute();
+    }
 
 }

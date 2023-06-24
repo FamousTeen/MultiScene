@@ -54,4 +54,10 @@ public class PeranEmployeeRepository {
       stmt.setInt(3, peran.getIdPeran());
       stmt.execute();
    }
+   public void deletePeranEmployee() throws SQLException {
+      var conn = DBConnection.get();
+      var stmt = conn.prepareStatement("DELETE FROM peran_employee\n" +
+              "WHERE id_peran = ?");
+      stmt.execute();
+   }
 }
