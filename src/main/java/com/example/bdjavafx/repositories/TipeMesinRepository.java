@@ -41,7 +41,7 @@ public class TipeMesinRepository {
     public void updateTipeMesin(TipeMesin tipeMesin) throws SQLException {
         var conn = DBConnection.get();
         var stmt = conn.prepareStatement("UPDATE tipeMesin\n" +
-                "SET fungsi_mesin = ?, cara_kerja = ?," +
+                "SET fungsi_mesin = ?, cara_kerja = ?\n" +
                 "WHERE id_tipe = ?;" );
         stmt.setString(1, tipeMesin.getFungsi_mesin());
         stmt.setString(2, tipeMesin.getCara_kerja());
