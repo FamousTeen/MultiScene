@@ -4,6 +4,7 @@ import com.example.bdjavafx.DBConnection;
 import com.example.bdjavafx.models.Employee;
 import com.example.bdjavafx.models.Mesin;
 import com.example.bdjavafx.models.Produksi;
+import com.example.bdjavafx.models.RawMaterial;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -49,6 +50,18 @@ public class ProduksiRepository {
       var stmt1 = conn.prepareStatement("TRUNCATE TABLE produksi");
       stmt1.execute();
       var stmt = conn.prepareStatement("DELETE FROM produksi");
+      stmt.execute();
+   }
+   public void updateProduksi(Produksi produksi) throws SQLException {
+      var conn = DBConnection.get();
+      var stmt = conn.prepareStatement("UPDATE produksi\n" +
+              "SET biaya_produksi = ?, jumlah_employee = ? , alamat_wh = ? , no_telp = ? , kapasitas_ruang = ?\n" +
+              "WHERE id_material = ?;" );
+      stmt.setInt(1, produksi.getBiayaProduksi());
+      stmt.setInt(2, produksi.getJumlahEmployee());
+      stmt.setString(3 , produksi.getAlamatWH());
+      stmt.setInt(4, produksi.getNoTelp());
+      stmt.setInt(5,produksi.getKapasitasRuang());
       stmt.execute();
    }
 
