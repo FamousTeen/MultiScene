@@ -1,9 +1,6 @@
 package com.example.bdjavafx;
 
-import com.example.bdjavafx.scenes.BaseScene;
-import com.example.bdjavafx.scenes.PembelianScene;
-import com.example.bdjavafx.scenes.SceneConstructor;
-import com.example.bdjavafx.scenes.CreateScene;
+import com.example.bdjavafx.scenes.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -36,8 +33,9 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scenes = Map.of(
-                "pembelian", (s) -> new PembelianScene(),
-                "create", (s) -> new CreateScene()
+                "pembelian", (s) -> new MainScene(),
+                "create", (s) -> new CreateScene(),
+                "update", (s) -> new UpdateScene()
         );
 
         HelloApplication.stage = stage;

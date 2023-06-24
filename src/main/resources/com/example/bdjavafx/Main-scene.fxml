@@ -124,10 +124,13 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="531.0" layoutY="958.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="182.0" text="Button">
+                  <Button fx:id="toUpdateScene" layoutX="531.0" layoutY="958.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="182.0" text="UPDATE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
                   </Button>
                   <Button layoutX="827.0" layoutY="958.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="182.0" text="Button">
                      <opaqueInsets>

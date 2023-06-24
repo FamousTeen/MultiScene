@@ -69,18 +69,6 @@ public class ManagementSceneController implements Initializable {
     public TableView<RawMaterial> TABLE_RAW;
     @FXML
     public TableView<TipeMaterial> TABLE_TIPE_MATERIAL;
-//
-//    @FXML
-//    public Button SUBMIT_BUTTON;
-//    @FXML
-//    public Button SUBMIT_BUTTON1;
-//    @FXML
-//    public Button SUBMIT_BUTTON11;
-
-
-//    BUTTON
-    @FXML
-    protected Button CREATE_BUTTON;
 
     // BUAT TABLE EMPLOYEE
     @FXML
@@ -276,6 +264,11 @@ public class ManagementSceneController implements Initializable {
     @FXML
     public void toCreateScene() throws IOException {
         HelloApplication.getScene("create").show();
+    }
+
+    @FXML
+    public void toUpdateScene() throws IOException {
+        HelloApplication.getScene("update").show();
     }
 
 

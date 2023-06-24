@@ -5,7 +5,6 @@ import com.example.bdjavafx.models.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -16,7 +15,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class SecondSceneController extends ManagementSceneController implements Initializable {
+public class CreateSceneController extends ManagementSceneController implements Initializable {
     @FXML
     private ComboBox<String> PILIH_TABLE;
 

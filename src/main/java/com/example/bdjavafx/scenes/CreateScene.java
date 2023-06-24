@@ -5,7 +5,7 @@ public class CreateScene extends BaseScene {
         super();
 
         this.title = "Menu";
-        this.viewName = "scene2.fxml";
+        this.viewName = "Create-scene.fxml";
         this.width = 640;
         this.height = 480;
     }

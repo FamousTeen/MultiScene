@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bdjavafx.controllers.SecondSceneController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bdjavafx.controllers.CreateSceneController">
     <Button layoutX="14.0" layoutY="14.0" onAction="#toPembelian" text="To Pembelian" />
    <ComboBox fx:id="PILIH_TABLE" layoutX="209.0" layoutY="68.0" prefWidth="150.0" promptText="Pilih Table" />
    <Label fx:id="TEXT_1" layoutX="124.0" layoutY="134.0" prefHeight="18.0" prefWidth="108.0" text="Field 1" />
