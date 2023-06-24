@@ -3,6 +3,7 @@ package com.example.bdjavafx.repositories;
 import com.example.bdjavafx.DBConnection;
 import com.example.bdjavafx.models.Employee;
 import com.example.bdjavafx.models.RawMaterial;
+import com.example.bdjavafx.models.TipeMaterial;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -37,6 +38,17 @@ public class RawMaterialRepository {
         stmt.setInt(1, rawMaterial.getMassaMaterial());
         stmt.setInt(2, rawMaterial.getJumlahMaterial());
         stmt.setInt(3, rawMaterial.getIdTipe());
+        stmt.setInt(4, rawMaterial.getIdProduksi());
+        stmt.execute();
+    }
+    public void updateRawMaterial(RawMaterial rawMaterial) throws SQLException {
+        var conn = DBConnection.get();
+        var stmt = conn.prepareStatement("UPDATE rawMaterial\n" +
+                "SET massa_material = ?, jumlah_material = ? , id_tipe = ? , id_produksi = ?\n" +
+                "WHERE id_material = ?;" );
+        stmt.setInt(1, rawMaterial.getMassaMaterial());
+        stmt.setInt(2, rawMaterial.getJumlahMaterial());
+        stmt.setInt(3 , rawMaterial.getIdTipe());
         stmt.setInt(4, rawMaterial.getIdProduksi());
         stmt.execute();
     }
