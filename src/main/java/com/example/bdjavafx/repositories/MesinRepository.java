@@ -1,6 +1,7 @@
 package com.example.bdjavafx.repositories;
 
 import com.example.bdjavafx.DBConnection;
+import com.example.bdjavafx.models.Employee;
 import com.example.bdjavafx.models.Mesin;
 
 import java.sql.*;
@@ -37,6 +38,20 @@ public class MesinRepository {
       stmt.setInt(2, mesin.getHargaMesin());
       stmt.setInt(3, mesin.getIdTipe());
       stmt.setInt(4, mesin.getIdProduksi());
+      stmt.execute();
+   }
+
+   public void updateMesin(Mesin mesin) throws SQLException {
+      var conn = DBConnection.get();
+      var stmt = conn.prepareStatement("UPDATE mesin\n" +
+              "SET kapasitas_mesin = ?, harga_mesin = ?, id_tipe = ?," +
+              "id_produksi = ?\n" +
+              "WHERE id_employee = ?;" );
+      stmt.setInt(1, mesin.getKapasitasMesin());
+      stmt.setInt(2, mesin.getHargaMesin());
+      stmt.setInt(3, mesin.getIdTipe());
+      stmt.setInt(4, mesin.getIdProduksi());
+      stmt.setInt(5, mesin.getIdMesin());
       stmt.execute();
    }
 

@@ -139,18 +139,28 @@
                      </opaqueInsets>
                   </Button>
                   <Label layoutX="585.0" layoutY="1068.0" text="Update di sini" />
-                  <Label layoutX="233.0" layoutY="1109.0" text="Label" />
-                  <Label layoutX="233.0" layoutY="1185.0" text="Label" />
-                  <TextField layoutX="358.0" layoutY="1105.0" />
-                  <TextField layoutX="358.0" layoutY="1181.0" />
-                  <Label layoutX="233.0" layoutY="1256.0" text="Label" />
-                  <TextField layoutX="358.0" layoutY="1252.0" />
-                  <Label layoutX="531.0" layoutY="1111.0" text="Label" />
-                  <Label layoutX="531.0" layoutY="1187.0" text="Label" />
-                  <TextField layoutX="656.0" layoutY="1107.0" />
-                  <TextField layoutX="656.0" layoutY="1183.0" />
-                  <Label layoutX="531.0" layoutY="1258.0" text="Label" />
-                  <TextField layoutX="656.0" layoutY="1254.0" />
+                  <Label fx:id="TEXT_1" layoutX="233.0" layoutY="1109.0" text="Label" />
+                  <Label fx:id="TEXT_2" layoutX="233.0" layoutY="1185.0" text="Label" />
+                  <TextField fx:id="FIELD_1" layoutX="358.0" layoutY="1105.0" />
+                  <TextField fx:id="FIELD_2" layoutX="358.0" layoutY="1181.0" />
+                  <Label fx:id="TEXT_3" layoutX="233.0" layoutY="1256.0" text="Label" />
+                  <TextField fx:id="FIELD_3" layoutX="358.0" layoutY="1252.0" />
+                  <Label fx:id="TEXT_4" layoutX="531.0" layoutY="1111.0" text="Label" />
+                  <Label fx:id="TEXT_5" layoutX="531.0" layoutY="1187.0" text="Label" />
+                  <TextField fx:id="FIELD_4" layoutX="656.0" layoutY="1107.0" />
+                  <TextField fx:id="FIELD_5" layoutX="656.0" layoutY="1183.0" />
+                  <Label fx:id="TEXT_6" layoutX="531.0" layoutY="1258.0" text="Label" />
+                  <TextField fx:id="FIELD_6" layoutX="656.0" layoutY="1254.0" />
+                  <Button fx:id="SUBMIT_BUTTON" layoutX="418.0" layoutY="1318.0" mnemonicParsing="false" onAction="#submit" prefHeight="57.0" prefWidth="106.0" text="Submit">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="CLEAR_BUTTON" layoutX="578.0" layoutY="1318.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="106.0" text="Clear">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
         </content>

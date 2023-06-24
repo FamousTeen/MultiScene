@@ -42,4 +42,18 @@ public class ProductRepository {
         stmt.execute();
     }
 
+    public void updateProduct(Product product) throws SQLException {
+        var conn = DBConnection.get();
+        var stmt = conn.prepareStatement("UPDATE product\n" +
+                "SET tgl_buat = ?, harga_produk = ?, massa_produk = ?," +
+                "id_produksi = ?\n" +
+                "WHERE id_product = ?;" );
+        stmt.setString(1, product.getTglBuat());
+        stmt.setInt(2, product.getHargaProduk());
+        stmt.setInt(3, product.getMassaProduk());
+        stmt.setInt(4, product.getIdProduksi());
+        stmt.setInt(5, product.getIdProduct());
+        stmt.execute();
+    }
+
 }

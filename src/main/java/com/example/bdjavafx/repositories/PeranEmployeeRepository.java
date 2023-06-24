@@ -1,6 +1,7 @@
 package com.example.bdjavafx.repositories;
 
 import com.example.bdjavafx.DBConnection;
+import com.example.bdjavafx.models.Mesin;
 import com.example.bdjavafx.models.PeranEmployee;
 
 import java.sql.SQLException;
@@ -40,6 +41,17 @@ public class PeranEmployeeRepository {
       var stmt1 = conn.prepareStatement("TRUNCATE TABLE peran_employee");
       stmt1.execute();
       var stmt = conn.prepareStatement("DELETE FROM peran_employee");
+      stmt.execute();
+   }
+
+   public void updatePeran(PeranEmployee peran) throws SQLException {
+      var conn = DBConnection.get();
+      var stmt = conn.prepareStatement("UPDATE peran_employee\n" +
+              "SET nama_peran = ?, jabatan = ?\n" +
+              "WHERE id_peran = ?;" );
+      stmt.setString(1, peran.getNamaPeran());
+      stmt.setString(2, peran.getJabatan());
+      stmt.setInt(3, peran.getIdPeran());
       stmt.execute();
    }
 }

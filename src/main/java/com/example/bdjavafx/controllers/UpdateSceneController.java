@@ -69,14 +69,12 @@
 //            setFieldAndText("ID Employee","Nama Employee", "Alamat",
 //                    "Tanggal Lahir", "ID Peran", "ID Produksi", true, true,
 //                    true, true, true, true);
-//            System.out.println("lol");
 //            FIELD_1.setText(String.valueOf(selectedData1.getIdEmployee()));
 //            FIELD_2.setText(selectedData1.getNamaEmployee());
 //            FIELD_3.setText(selectedData1.getAlamat());
 //            FIELD_4.setText(selectedData1.getTglLahir());
 //            FIELD_5.setText(String.valueOf(selectedData1.getIdPeran()));
 //            FIELD_6.setText(String.valueOf(selectedData1.getIdProduksi()));
-//            FIELD_2.setVisible(false);
 //         }
 //         if (selectedData2 != null) {
 ////                UpdateSceneController.setData(selectedData);

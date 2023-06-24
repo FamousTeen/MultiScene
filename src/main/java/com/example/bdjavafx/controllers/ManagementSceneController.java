@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -156,6 +157,33 @@ public class ManagementSceneController implements Initializable {
     @FXML
     public TableColumn<TipeMaterial, String> RECYCLE_TYPE;
 
+    @FXML
+    private Label TEXT_1;
+    @FXML
+    private Label TEXT_2;
+    @FXML
+    private Label TEXT_3;
+    @FXML
+    private Label TEXT_4;
+    @FXML
+    private Label TEXT_5;
+    @FXML
+    private Label TEXT_6;
+
+    //  FIELD (DATA KOLOM)
+    @FXML
+    private TextField FIELD_1;
+    @FXML
+    private TextField FIELD_2;
+    @FXML
+    private TextField FIELD_3;
+    @FXML
+    private TextField FIELD_4;
+    @FXML
+    private TextField FIELD_5;
+    @FXML
+    private TextField FIELD_6;
+
 //    private UpdateSceneController updateSceneController;
 
 //    public void setUpdateSceneController(UpdateSceneController controller) {
@@ -225,60 +253,60 @@ public class ManagementSceneController implements Initializable {
             NAMA_TIPE.setCellValueFactory(new PropertyValueFactory<>("namaTipe"));
             RECYCLE_TYPE.setCellValueFactory(new PropertyValueFactory<>("recycleType"));
 
-            TABLE_EMP.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-//                    UpdateSceneController.setData(newValue);
-//                    UpdateSceneController.setData(newValue);
-                }
-            });
-            TABLE_PERAN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-//                    UpdateSceneController.setData(newValue);
-//                    UpdateSceneController.setData(newValue);
-                }
-            });
-            TABLE_RAW.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-//                    UpdateSceneController.setData(newValue);
-//                    UpdateSceneController.setData(newValue);
-                }
-            });
-            TABLE_PRODUKSI.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-//                    UpdateSceneController.setData(newValue);
-//                    UpdateSceneController.setData(newValue);
-                }
-            });
-            TABLE_PERAN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-//                    UpdateSceneController.setData(newValue);
-//                    UpdateSceneController.setData(newValue);
-                }
-            });
-            TABLE_TIPE_MESIN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-//                    UpdateSceneController.setData(newValue);
-//                    UpdateSceneController.setData(newValue);
-                }
-            });
-            TABLE_TIPE_MATERIAL.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-//                    UpdateSceneController.setData(newValue);
-//                    UpdateSceneController.setData(newValue);
-                }
-            });
-            TABLE_MESIN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-//                    UpdateSceneController.setData(newValue);
-//                    UpdateSceneController.setData(newValue);
-                }
-            });
-            TABLE_PRODUCT.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-//                    UpdateSceneController.setData(newValue);
-//                    UpdateSceneController.setData(newValue);
-                }
-            });
+//            TABLE_EMP.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                if (newValue != null) {
+////                    UpdateSceneController.setData(newValue);
+////                    UpdateSceneController.setData(newValue);
+//                }
+//            });
+//            TABLE_PERAN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                if (newValue != null) {
+////                    UpdateSceneController.setData(newValue);
+////                    UpdateSceneController.setData(newValue);
+//                }
+//            });
+//            TABLE_RAW.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                if (newValue != null) {
+////                    UpdateSceneController.setData(newValue);
+////                    UpdateSceneController.setData(newValue);
+//                }
+//            });
+//            TABLE_PRODUKSI.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                if (newValue != null) {
+////                    UpdateSceneController.setData(newValue);
+////                    UpdateSceneController.setData(newValue);
+//                }
+//            });
+//            TABLE_PERAN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                if (newValue != null) {
+////                    UpdateSceneController.setData(newValue);
+////                    UpdateSceneController.setData(newValue);
+//                }
+//            });
+//            TABLE_TIPE_MESIN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                if (newValue != null) {
+////                    UpdateSceneController.setData(newValue);
+////                    UpdateSceneController.setData(newValue);
+//                }
+//            });
+//            TABLE_TIPE_MATERIAL.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                if (newValue != null) {
+////                    UpdateSceneController.setData(newValue);
+////                    UpdateSceneController.setData(newValue);
+//                }
+//            });
+//            TABLE_MESIN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                if (newValue != null) {
+////                    UpdateSceneController.setData(newValue);
+////                    UpdateSceneController.setData(newValue);
+//                }
+//            });
+//            TABLE_PRODUCT.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                if (newValue != null) {
+////                    UpdateSceneController.setData(newValue);
+////                    UpdateSceneController.setData(newValue);
+//                }
+//            });
 
             var conn = DBConnection.get();
             var stmt = conn.prepareStatement("SET FOREIGN_KEY_CHECKS=0");
@@ -335,66 +363,194 @@ public class ManagementSceneController implements Initializable {
     public void toUpdateScene() throws IOException {
             Employee selectedData1 = TABLE_EMP.getSelectionModel().getSelectedItem();
             if (selectedData1 != null) {
-//                UpdateSceneController.setData(selectedData);
-//                UpdateSceneController.setData(selectedData1);
+                setFieldAndText("ID Employee","Nama Employee", "Alamat",
+                        "Tanggal Lahir", "ID Peran", "ID Produksi", true, true,
+                        true, true, true, true);
+                FIELD_1.setText(String.valueOf(selectedData1.getIdEmployee()));
+                FIELD_2.setText(selectedData1.getNamaEmployee());
+                FIELD_3.setText(selectedData1.getAlamat());
+                FIELD_4.setText(selectedData1.getTglLahir());
+                FIELD_5.setText(String.valueOf(selectedData1.getIdPeran()));
+                FIELD_6.setText(String.valueOf(selectedData1.getIdProduksi()));
             }
             RawMaterial selectedData2 = TABLE_RAW.getSelectionModel().getSelectedItem();
             if (selectedData2 != null) {
-//                UpdateSceneController.setData(selectedData);
-//                UpdateSceneController.setData(selectedData2);
+                setFieldAndText("ID Material", "Massa Material",
+                    "Jumlah Material", "ID Tipe", "ID Produksi", null,  false, true,
+                    true, true, true, false);
+                FIELD_1.setText(String.valueOf(selectedData2.getIdMaterial()));
+                FIELD_2.setText(String.valueOf(selectedData2.getMassaMaterial()));
+                FIELD_3.setText(String.valueOf(selectedData2.getJumlahMaterial()));
+                FIELD_4.setText(String.valueOf(selectedData2.getIdTipe()));
+                FIELD_5.setText(String.valueOf(selectedData2.getIdProduksi()));
             }
             Product selectedData3 = TABLE_PRODUCT.getSelectionModel().getSelectedItem();
             if (selectedData3 != null) {
-//                UpdateSceneController.setData(selectedData);
-//                UpdateSceneController.setData(selectedData3);
+                setFieldAndText("ID Produk", "Tanggal Buat", "Harga Produk",
+                        "Massa Produk", "ID Produksi", null, false, true,
+                        true, true, true, false);
+                FIELD_1.setText(String.valueOf(selectedData3.getIdProduct()));
+                FIELD_2.setText(selectedData3.getTglBuat());
+                FIELD_3.setText(String.valueOf(selectedData3.getHargaProduk()));
+                FIELD_4.setText(String.valueOf(selectedData3.getMassaProduk()));
+                FIELD_5.setText(String.valueOf(selectedData3.getIdProduksi()));
             }
             Produksi selectedData4 = TABLE_PRODUKSI.getSelectionModel().getSelectedItem();
             if (selectedData4 != null) {
-//                UpdateSceneController.setData(selectedData);
-//                UpdateSceneController.setData(selectedData4);
+                setFieldAndText("ID Produksi","Biaya Produksi", "Jumlah Employee",
+                        "Alamat Warehouse", "No Telepon", "Kapasitas Ruang", false, true,
+                        true, true, true, true);
+                FIELD_1.setText(String.valueOf(selectedData4.getIdProduksi()));
+                FIELD_2.setText(String.valueOf(selectedData4.getBiayaProduksi()));
+                FIELD_3.setText(String.valueOf(selectedData4.getJumlahEmployee()));
+                FIELD_4.setText(selectedData4.getAlamatWH());
+                FIELD_5.setText(String.valueOf(selectedData4.getNoTelp()));
+                FIELD_6.setText(String.valueOf(selectedData4.getKapasitasRuang()));
             }
             Mesin selectedData5 = TABLE_MESIN.getSelectionModel().getSelectedItem();
             if (selectedData5 != null) {
-//                UpdateSceneController.setData(selectedData);
-//                UpdateSceneController.setData(selectedData5);
+                setFieldAndText("ID Mesin", "Kapasitas Mesin", "Harga Mesin",
+                        "ID Tipe", "ID Produksi", null, true, true,
+                        true, true, true, false);
+                FIELD_1.setText(String.valueOf(selectedData5.getIdMesin()));
+                FIELD_2.setText(String.valueOf(selectedData5.getKapasitasMesin()));
+                FIELD_3.setText(String.valueOf(selectedData5.getHargaMesin()));
+                FIELD_4.setText(String.valueOf(selectedData5.getIdTipe()));
+                FIELD_5.setText(String.valueOf(selectedData5.getIdProduksi()));
             }
             PeranEmployee selectedData6 = TABLE_PERAN.getSelectionModel().getSelectedItem();
             if (selectedData6 != null) {
-//                UpdateSceneController.setData(selectedData);
-//                UpdateSceneController.setData(selectedData6);
+                setFieldAndText("ID Peran", "Nama Peran", "Jabatan", null, null,
+                        null, true, true, true, false, false, false);
+                FIELD_1.setText(String.valueOf(selectedData6.getIdPeran()));
+                FIELD_2.setText(selectedData6.getNamaPeran());
+                FIELD_3.setText(selectedData6.getJabatan());
             }
             TipeMaterial selectedData7 = TABLE_TIPE_MATERIAL.getSelectionModel().getSelectedItem();
             if (selectedData7 != null) {
-//                UpdateSceneController.setData(selectedData);
-//                UpdateSceneController.setData(selectedData7);
+                setFieldAndText("ID Tipe","Nama Tipe", "Recycle Type", null, null,
+                        null, false, true, true, false, false, false);
+                FIELD_1.setText(String.valueOf(selectedData7.getIdTipe()));
+                FIELD_2.setText(selectedData7.getNamaTipe());
+                FIELD_3.setText(selectedData7.getRecycleType());
             }
             TipeMesin selectedData8 = TABLE_TIPE_MESIN.getSelectionModel().getSelectedItem();
             if (selectedData8 != null) {
-//                UpdateSceneController.setData(selectedData);
-//                UpdateSceneController.setData(selectedData8);
+                setFieldAndText("ID Tipe", "Fungsi Mesin", "Cara Kerja", null, null,
+                        null, true, true, true, false, false, false);
+                FIELD_1.setText(String.valueOf(selectedData8.getId_tipe()));
+                FIELD_2.setText(selectedData8.getFungsi_mesin());
+                FIELD_3.setText(selectedData8.getCara_kerja());
             }
         HelloApplication.getScene("update").show();
     }
 
+    public void setFieldAndText(String column1, String column2, String column3,
+                                String column4, String column5, String column6,
+                                boolean isVisible1, boolean isVisible2, boolean isVisible3,
+                                boolean isVisible4, boolean isVisible5, boolean isVisible6) {
+        TEXT_1.setText(column1);
+        TEXT_2.setText(column2);
+        TEXT_3.setText(column3);
+        TEXT_4.setText(column4);
+        TEXT_5.setText(column5);
+        TEXT_6.setText(column6);
+        TEXT_1.setVisible(isVisible1);
+        TEXT_2.setVisible(isVisible2);
+        TEXT_3.setVisible(isVisible3);
+        TEXT_4.setVisible(isVisible4);
+        TEXT_5.setVisible(isVisible5);
+        TEXT_6.setVisible(isVisible6);
+        FIELD_1.setVisible(isVisible1);
+        FIELD_2.setVisible(isVisible2);
+        FIELD_3.setVisible(isVisible3);
+        FIELD_4.setVisible(isVisible4);
+        FIELD_5.setVisible(isVisible5);
+        FIELD_6.setVisible(isVisible6);
+    }
+
+
 
     @FXML
     public void submit() throws Exception {
-        String employeeName = textField.getText();
-        rep_emp.createEmployee(new Employee(1, employeeName, "Puri", "13-Juni-2023", 1, 1));
-        refreshTable();
-    }
-
-    @FXML
-    public void submit1() throws Exception {
-        String employeeName = textField1.getText();
-        rep_peran.createPeran(new PeranEmployee(1, employeeName, "Executive"));
-        refreshTable();
-    }
-
-    @FXML
-    public void submit11() throws Exception {
-        rep_production.createProduksi(new Produksi(1, 10000, 5, "Puri Lidah", 812, 30));
-        refreshTable();
+        Employee selectedData1 = TABLE_EMP.getSelectionModel().getSelectedItem();
+        if (selectedData1 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            String nama = FIELD_2.getText();
+            String alamat = FIELD_3.getText();
+            String tglLahir = FIELD_4.getText();
+            int idPeran = Integer.parseInt(FIELD_5.getText());
+            int idProduksi = Integer.parseInt(FIELD_6.getText());
+            rep_emp.updateEmployee(new Employee(id, nama, alamat, tglLahir, idPeran, idProduksi));
+            refreshTable();
+        }
+        RawMaterial selectedData2 = TABLE_RAW.getSelectionModel().getSelectedItem();
+        if (selectedData2 != null) {
+            setFieldAndText("ID Material", "Massa Material",
+                    "Jumlah Material", "ID Tipe", "ID Produksi", null,  false, true,
+                    true, true, true, false);
+            FIELD_1.setText(String.valueOf(selectedData2.getIdMaterial()));
+            FIELD_2.setText(String.valueOf(selectedData2.getMassaMaterial()));
+            FIELD_3.setText(String.valueOf(selectedData2.getJumlahMaterial()));
+            FIELD_4.setText(String.valueOf(selectedData2.getIdTipe()));
+            FIELD_5.setText(String.valueOf(selectedData2.getIdProduksi()));
+        }
+        Product selectedData3 = TABLE_PRODUCT.getSelectionModel().getSelectedItem();
+        if (selectedData3 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            String tglbuat = FIELD_2.getText();
+            int harga = Integer.parseInt(FIELD_3.getText());
+            int massa = Integer.parseInt(FIELD_4.getText());
+            int idProduksi = Integer.parseInt(FIELD_5.getText());
+            rep_product.updateProduct(new Product(id, tglbuat, harga, massa, idProduksi));
+            refreshTable();
+        }
+        Produksi selectedData4 = TABLE_PRODUKSI.getSelectionModel().getSelectedItem();
+        if (selectedData4 != null) {
+            setFieldAndText("ID Produksi","Biaya Produksi", "Jumlah Employee",
+                    "Alamat Warehouse", "No Telepon", "Kapasitas Ruang", false, true,
+                    true, true, true, true);
+            FIELD_1.setText(String.valueOf(selectedData4.getIdProduksi()));
+            FIELD_2.setText(String.valueOf(selectedData4.getBiayaProduksi()));
+            FIELD_3.setText(String.valueOf(selectedData4.getJumlahEmployee()));
+            FIELD_4.setText(selectedData4.getAlamatWH());
+            FIELD_5.setText(String.valueOf(selectedData4.getNoTelp()));
+            FIELD_6.setText(String.valueOf(selectedData4.getKapasitasRuang()));
+        }
+        Mesin selectedData5 = TABLE_MESIN.getSelectionModel().getSelectedItem();
+        if (selectedData5 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            int kapasitas = Integer.parseInt(FIELD_2.getText());
+            int harga = Integer.parseInt(FIELD_3.getText());
+            int idTipe = Integer.parseInt(FIELD_4.getText());
+            int idProduksi = Integer.parseInt(FIELD_5.getText());
+            rep_mesin.updateMesin(new Mesin(id, kapasitas, harga, idTipe, idProduksi));
+            refreshTable();
+        }
+        PeranEmployee selectedData6 = TABLE_PERAN.getSelectionModel().getSelectedItem();
+        if (selectedData6 != null) {
+            int id = Integer.parseInt(FIELD_1.getText());
+            String nama = FIELD_2.getText();
+            String jabatan = FIELD_3.getText();
+            rep_peran.updatePeran(new PeranEmployee(id, nama, jabatan));
+            refreshTable();
+        }
+        TipeMaterial selectedData7 = TABLE_TIPE_MATERIAL.getSelectionModel().getSelectedItem();
+        if (selectedData7 != null) {
+            setFieldAndText("ID Tipe","Nama Tipe", "Recycle Type", null, null,
+                    null, false, true, true, false, false, false);
+            FIELD_1.setText(String.valueOf(selectedData7.getIdTipe()));
+            FIELD_2.setText(selectedData7.getNamaTipe());
+            FIELD_3.setText(selectedData7.getRecycleType());
+        }
+        TipeMesin selectedData8 = TABLE_TIPE_MESIN.getSelectionModel().getSelectedItem();
+        if (selectedData8 != null) {
+            setFieldAndText("ID Tipe", "Fungsi Mesin", "Cara Kerja", null, null,
+                    null, true, true, true, false, false, false);
+            FIELD_1.setText(String.valueOf(selectedData8.getId_tipe()));
+            FIELD_2.setText(selectedData8.getFungsi_mesin());
+            FIELD_3.setText(selectedData8.getCara_kerja());
+        }
     }
 }
 //

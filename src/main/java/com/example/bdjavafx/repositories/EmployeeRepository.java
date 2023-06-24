@@ -53,12 +53,13 @@ public class EmployeeRepository {
         var stmt = conn.prepareStatement("UPDATE employee\n" +
                 "SET nama_employee = ?, alamat = ?, tgl_lahir = ?," +
                 "id_peran = ?, id_produksi = ?\n" +
-                "WHERE kondisi;" );
+                "WHERE id_employee = ?;" );
         stmt.setString(1, employee.getNamaEmployee());
         stmt.setString(2, employee.getAlamat());
         stmt.setString(3, employee.getTglLahir());
         stmt.setInt(4, employee.getIdPeran());
         stmt.setInt(5, employee.getIdProduksi());
+        stmt.setInt(6, employee.getIdEmployee());
         stmt.execute();
     }
 
