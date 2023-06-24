@@ -38,6 +38,15 @@ public class TipeMesinRepository {
         stmt.setString(3, tipeMesin.getCara_kerja());
         stmt.execute();
     }
+    public void updateTipeMesin(TipeMesin tipeMesin) throws SQLException {
+        var conn = DBConnection.get();
+        var stmt = conn.prepareStatement("UPDATE tipeMesin\n" +
+                "SET fungsi_mesin = ?, cara_kerja = ?," +
+                "WHERE id_tipe = ?;" );
+        stmt.setString(1, tipeMesin.getFungsi_mesin());
+        stmt.setString(2, tipeMesin.getCara_kerja());
+        stmt.execute();
+    }
 
 }
 
