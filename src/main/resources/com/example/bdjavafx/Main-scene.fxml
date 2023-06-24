@@ -5,16 +5,15 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="1250.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bdjavafx.controllers.ManagementSceneController">
+<VBox prefHeight="1600.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bdjavafx.controllers.ManagementSceneController">
    <children>
-      <ScrollPane prefHeight="1250.0" prefWidth="1500.0">
+      <ScrollPane prefHeight="1600.0" prefWidth="1500.0">
         <content>
-            <AnchorPane prefHeight="1250.0" prefWidth="1500.0">
+            <AnchorPane prefHeight="1600.0" prefWidth="1500.0">
                <children>
                   <TableView fx:id="TABLE_EMP" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="700.0">
                     <columns>
@@ -137,12 +136,6 @@
                         <Insets />
                      </opaqueInsets>
                   </Button>
-                  <TextField fx:id="textField" layoutX="240.0" layoutY="1090.0" />
-                  <TextField fx:id="textField1" layoutX="241.0" layoutY="1139.0" />
-                  <TextField fx:id="textField2" layoutX="241.0" layoutY="1185.0" />
-                  <Button fx:id="button1" layoutX="414.0" layoutY="1090.0" mnemonicParsing="false" onAction="#submit" text="Button" />
-                  <Button fx:id="button2" layoutX="414.0" layoutY="1139.0" mnemonicParsing="false" onAction="#submit1" text="Button" />
-                  <Button fx:id="button3" layoutX="414.0" layoutY="1185.0" mnemonicParsing="false" onAction="#submit11" text="Button" />
                </children>
             </AnchorPane>
         </content>
