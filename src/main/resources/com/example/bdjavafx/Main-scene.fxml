@@ -116,7 +116,7 @@
                         </TableColumn>
                      </columns>
                   </TableView>
-                  <Button fx:id="CREATE_BUTTON" layoutX="240.0" layoutY="958.0" mnemonicParsing="false" onAction="#toCreateScene" prefHeight="90.0" prefWidth="182.0" text="CREATE">
+                  <Button layoutX="240.0" layoutY="958.0" mnemonicParsing="false" onAction="#toCreateScene" prefHeight="90.0" prefWidth="182.0" text="CREATE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -124,7 +124,7 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="toUpdateScene" layoutX="531.0" layoutY="958.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="182.0" text="UPDATE">
+                  <Button layoutX="531.0" layoutY="958.0" mnemonicParsing="false" onAction="#toUpdateScene" prefHeight="90.0" prefWidth="182.0" text="UPDATE">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>

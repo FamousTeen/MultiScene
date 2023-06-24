@@ -280,7 +280,7 @@ public class CreateSceneController extends ManagementSceneController implements 
 
     @FXML
     public void toPembelian() throws IOException {
-        HelloApplication.getScene("pembelian").show();
+        HelloApplication.getScene("main").show();
     }
 
 }

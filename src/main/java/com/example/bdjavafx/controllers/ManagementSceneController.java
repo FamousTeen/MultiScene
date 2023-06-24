@@ -6,10 +6,8 @@ import com.example.bdjavafx.models.*;
 import com.example.bdjavafx.repositories.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -22,39 +20,39 @@ import java.util.ResourceBundle;
 
 public class ManagementSceneController implements Initializable {
     // Employee
-    protected EmployeeRepository rep_emp = new EmployeeRepository();;
+    public EmployeeRepository rep_emp;
     protected ObservableList<Employee> employeeList = FXCollections.observableArrayList();
 
     // Peran_employee
-    protected PeranEmployeeRepository rep_peran = new PeranEmployeeRepository();
+    protected PeranEmployeeRepository rep_peran;
     protected ObservableList<PeranEmployee> peranList = FXCollections.observableArrayList();;
 
     // Produksi
-    protected ProduksiRepository rep_production = new ProduksiRepository();
+    protected ProduksiRepository rep_production;
     protected ObservableList<Produksi> produksiList = FXCollections.observableArrayList();;
 
     // Mesin
-    protected MesinRepository rep_mesin = new MesinRepository();
+    protected MesinRepository rep_mesin;
     protected ObservableList<Mesin> mesinList = FXCollections.observableArrayList();;
 
     // Tipe_mesin
-    protected TipeMesinRepository rep_tipeMesin = new TipeMesinRepository();
+    protected TipeMesinRepository rep_tipeMesin;
     protected ObservableList<TipeMesin> tipeMesinList = FXCollections.observableArrayList();;
 
     // Product
-    protected ProductRepository rep_product = new ProductRepository();
+    protected ProductRepository rep_product;
     protected ObservableList<Product> productList = FXCollections.observableArrayList();;
 
     // Raw Material
-    protected RawMaterialRepository rep_raw = new RawMaterialRepository();
-    protected ObservableList<RawMaterial> rawList = FXCollections.observableArrayList();;
+    protected RawMaterialRepository rep_raw;
+    protected ObservableList<RawMaterial> rawList = FXCollections.observableArrayList();
 
     // Tipe Material
-    protected TipeMaterialRepository repTipeMaterial = new TipeMaterialRepository();
+    protected  TipeMaterialRepository repTipeMaterial;
     protected ObservableList<TipeMaterial> tipeMaterialList = FXCollections.observableArrayList();;
 
     @FXML
-    public TableView<Employee> TABLE_EMP;
+    public  TableView<Employee> TABLE_EMP;
     @FXML
     public TableView<PeranEmployee> TABLE_PERAN;
     @FXML
@@ -158,9 +156,22 @@ public class ManagementSceneController implements Initializable {
     @FXML
     public TableColumn<TipeMaterial, String> RECYCLE_TYPE;
 
+//    private UpdateSceneController updateSceneController;
+
+//    public void setUpdateSceneController(UpdateSceneController controller) {
+//        this.updateSceneController = controller;
+//    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            rep_emp = new EmployeeRepository();
+            rep_production = new ProduksiRepository();
+            rep_product = new ProductRepository();
+            rep_mesin = new MesinRepository();
+            repTipeMaterial = new TipeMaterialRepository();
+            rep_raw = new RawMaterialRepository();
+            rep_tipeMesin = new TipeMesinRepository();
+            rep_peran = new PeranEmployeeRepository();
 
             // TABLE EMPLOYEE
             ID_EMP.setCellValueFactory(new PropertyValueFactory<>("idEmployee"));
@@ -214,6 +225,60 @@ public class ManagementSceneController implements Initializable {
             NAMA_TIPE.setCellValueFactory(new PropertyValueFactory<>("namaTipe"));
             RECYCLE_TYPE.setCellValueFactory(new PropertyValueFactory<>("recycleType"));
 
+            TABLE_EMP.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+//                    UpdateSceneController.setData(newValue);
+//                    UpdateSceneController.setData(newValue);
+                }
+            });
+            TABLE_PERAN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+//                    UpdateSceneController.setData(newValue);
+//                    UpdateSceneController.setData(newValue);
+                }
+            });
+            TABLE_RAW.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+//                    UpdateSceneController.setData(newValue);
+//                    UpdateSceneController.setData(newValue);
+                }
+            });
+            TABLE_PRODUKSI.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+//                    UpdateSceneController.setData(newValue);
+//                    UpdateSceneController.setData(newValue);
+                }
+            });
+            TABLE_PERAN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+//                    UpdateSceneController.setData(newValue);
+//                    UpdateSceneController.setData(newValue);
+                }
+            });
+            TABLE_TIPE_MESIN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+//                    UpdateSceneController.setData(newValue);
+//                    UpdateSceneController.setData(newValue);
+                }
+            });
+            TABLE_TIPE_MATERIAL.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+//                    UpdateSceneController.setData(newValue);
+//                    UpdateSceneController.setData(newValue);
+                }
+            });
+            TABLE_MESIN.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+//                    UpdateSceneController.setData(newValue);
+//                    UpdateSceneController.setData(newValue);
+                }
+            });
+            TABLE_PRODUCT.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+//                    UpdateSceneController.setData(newValue);
+//                    UpdateSceneController.setData(newValue);
+                }
+            });
 
             var conn = DBConnection.get();
             var stmt = conn.prepareStatement("SET FOREIGN_KEY_CHECKS=0");
@@ -268,6 +333,46 @@ public class ManagementSceneController implements Initializable {
 
     @FXML
     public void toUpdateScene() throws IOException {
+            Employee selectedData1 = TABLE_EMP.getSelectionModel().getSelectedItem();
+            if (selectedData1 != null) {
+//                UpdateSceneController.setData(selectedData);
+//                UpdateSceneController.setData(selectedData1);
+            }
+            RawMaterial selectedData2 = TABLE_RAW.getSelectionModel().getSelectedItem();
+            if (selectedData2 != null) {
+//                UpdateSceneController.setData(selectedData);
+//                UpdateSceneController.setData(selectedData2);
+            }
+            Product selectedData3 = TABLE_PRODUCT.getSelectionModel().getSelectedItem();
+            if (selectedData3 != null) {
+//                UpdateSceneController.setData(selectedData);
+//                UpdateSceneController.setData(selectedData3);
+            }
+            Produksi selectedData4 = TABLE_PRODUKSI.getSelectionModel().getSelectedItem();
+            if (selectedData4 != null) {
+//                UpdateSceneController.setData(selectedData);
+//                UpdateSceneController.setData(selectedData4);
+            }
+            Mesin selectedData5 = TABLE_MESIN.getSelectionModel().getSelectedItem();
+            if (selectedData5 != null) {
+//                UpdateSceneController.setData(selectedData);
+//                UpdateSceneController.setData(selectedData5);
+            }
+            PeranEmployee selectedData6 = TABLE_PERAN.getSelectionModel().getSelectedItem();
+            if (selectedData6 != null) {
+//                UpdateSceneController.setData(selectedData);
+//                UpdateSceneController.setData(selectedData6);
+            }
+            TipeMaterial selectedData7 = TABLE_TIPE_MATERIAL.getSelectionModel().getSelectedItem();
+            if (selectedData7 != null) {
+//                UpdateSceneController.setData(selectedData);
+//                UpdateSceneController.setData(selectedData7);
+            }
+            TipeMesin selectedData8 = TABLE_TIPE_MESIN.getSelectionModel().getSelectedItem();
+            if (selectedData8 != null) {
+//                UpdateSceneController.setData(selectedData);
+//                UpdateSceneController.setData(selectedData8);
+            }
         HelloApplication.getScene("update").show();
     }
 
@@ -308,3 +413,4 @@ public class ManagementSceneController implements Initializable {
 //        }
 //    }
 //}
+

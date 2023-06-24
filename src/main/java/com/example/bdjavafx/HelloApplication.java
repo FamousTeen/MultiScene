@@ -33,13 +33,13 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scenes = Map.of(
-                "pembelian", (s) -> new MainScene(),
+                "main", (s) -> new MainScene(),
                 "create", (s) -> new CreateScene(),
                 "update", (s) -> new UpdateScene()
         );
 
         HelloApplication.stage = stage;
-        getScene("pembelian").show();
+        getScene("main").show();
     }
 
     public static void main(String[] args) throws SQLException {
