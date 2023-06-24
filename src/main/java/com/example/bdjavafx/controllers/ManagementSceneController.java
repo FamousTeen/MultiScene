@@ -486,14 +486,13 @@ public class ManagementSceneController implements Initializable {
         }
         RawMaterial selectedData2 = TABLE_RAW.getSelectionModel().getSelectedItem();
         if (selectedData2 != null) {
-            setFieldAndText("ID Material", "Massa Material",
-                    "Jumlah Material", "ID Tipe", "ID Produksi", null,  false, true,
-                    true, true, true, false);
-            FIELD_1.setText(String.valueOf(selectedData2.getIdMaterial()));
-            FIELD_2.setText(String.valueOf(selectedData2.getMassaMaterial()));
-            FIELD_3.setText(String.valueOf(selectedData2.getJumlahMaterial()));
-            FIELD_4.setText(String.valueOf(selectedData2.getIdTipe()));
-            FIELD_5.setText(String.valueOf(selectedData2.getIdProduksi()));
+            int id = Integer.parseInt(FIELD_1.getText());
+            int massa = Integer.parseInt(FIELD_2.getText());
+            int jumlah = Integer.parseInt(FIELD_3.getText());
+            int idTipe = Integer.parseInt(FIELD_4.getText());
+            int idProduksi = Integer.parseInt(FIELD_5.getText());
+            rep_raw.updateRawMaterial(new RawMaterial(id, massa, jumlah, idTipe, idProduksi));
+            refreshTable();
         }
         Product selectedData3 = TABLE_PRODUCT.getSelectionModel().getSelectedItem();
         if (selectedData3 != null) {
@@ -507,15 +506,14 @@ public class ManagementSceneController implements Initializable {
         }
         Produksi selectedData4 = TABLE_PRODUKSI.getSelectionModel().getSelectedItem();
         if (selectedData4 != null) {
-            setFieldAndText("ID Produksi","Biaya Produksi", "Jumlah Employee",
-                    "Alamat Warehouse", "No Telepon", "Kapasitas Ruang", false, true,
-                    true, true, true, true);
-            FIELD_1.setText(String.valueOf(selectedData4.getIdProduksi()));
-            FIELD_2.setText(String.valueOf(selectedData4.getBiayaProduksi()));
-            FIELD_3.setText(String.valueOf(selectedData4.getJumlahEmployee()));
-            FIELD_4.setText(selectedData4.getAlamatWH());
-            FIELD_5.setText(String.valueOf(selectedData4.getNoTelp()));
-            FIELD_6.setText(String.valueOf(selectedData4.getKapasitasRuang()));
+            int id = Integer.parseInt(FIELD_1.getText());
+            int biaya = Integer.parseInt(FIELD_2.getText());
+            int jumlah = Integer.parseInt(FIELD_3.getText());
+            String alamatWH = FIELD_4.getText();
+            int noTelp = Integer.parseInt(FIELD_5.getText());
+            int kapasitasRuang = Integer.parseInt(FIELD_6.getText());
+            rep_production.updateProduksi(new Produksi(id, biaya, jumlah, alamatWH, noTelp, kapasitasRuang));
+            refreshTable();
         }
         Mesin selectedData5 = TABLE_MESIN.getSelectionModel().getSelectedItem();
         if (selectedData5 != null) {
@@ -537,19 +535,19 @@ public class ManagementSceneController implements Initializable {
         }
         TipeMaterial selectedData7 = TABLE_TIPE_MATERIAL.getSelectionModel().getSelectedItem();
         if (selectedData7 != null) {
-            setFieldAndText("ID Tipe","Nama Tipe", "Recycle Type", null, null,
-                    null, false, true, true, false, false, false);
-            FIELD_1.setText(String.valueOf(selectedData7.getIdTipe()));
-            FIELD_2.setText(selectedData7.getNamaTipe());
-            FIELD_3.setText(selectedData7.getRecycleType());
+            int id = Integer.parseInt(FIELD_1.getText());
+            String namaTipe = FIELD_2.getText();
+            String recycleType = FIELD_3.getText();
+            repTipeMaterial.updateTipeMaterial(new TipeMaterial(id, namaTipe, recycleType));
+            refreshTable();
         }
         TipeMesin selectedData8 = TABLE_TIPE_MESIN.getSelectionModel().getSelectedItem();
         if (selectedData8 != null) {
-            setFieldAndText("ID Tipe", "Fungsi Mesin", "Cara Kerja", null, null,
-                    null, true, true, true, false, false, false);
-            FIELD_1.setText(String.valueOf(selectedData8.getId_tipe()));
-            FIELD_2.setText(selectedData8.getFungsi_mesin());
-            FIELD_3.setText(selectedData8.getCara_kerja());
+            int id = Integer.parseInt(FIELD_1.getText());
+            String fungsiMesin = FIELD_2.getText();
+            String caraKerja = FIELD_3.getText();
+            rep_tipeMesin.updateTipeMesin(new TipeMesin(id, fungsiMesin, caraKerja));
+            refreshTable();
         }
     }
 }
